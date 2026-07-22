@@ -152,7 +152,7 @@ add_heading(doc, "复现信息", level=1)
 
 meta = [
     ("复现日期", "2026-07-22"),
-    ("复现者", "陈诗阳（京东七鲜研发部实习生）"),
+    ("复现者", "陈诗阳"),
     ("大模型选型", "Claude 4.7 Opus (Claude-Opus-4.7-joybuilder)"),
     ("AI 工具", "Claude Code CLI"),
     ("运行环境", "Apple Silicon MacBook (macOS Darwin 24.6.0), Python 3.9, NumPy + Numba(JIT) + matplotlib"),
