@@ -1,0 +1,47 @@
+[SMOKE TEST] RS(63,57) + BCH(63,57), total rate = 0.8186
+
+--- Pure RS-BM (hard) ---
+  Pure RS-BM (hard) @ 4.00 dB: FER=1.000e+00, BER=5.336e-02, avg_f2m=660, lat=382μs, 100 frames, 0.1s
+  Pure RS-BM (hard) @ 4.50 dB: FER=1.000e+00, BER=4.749e-02, avg_f2m=661, lat=378μs, 100 frames, 0.1s
+  Pure RS-BM (hard) @ 5.00 dB: FER=1.000e+00, BER=3.854e-02, avg_f2m=660, lat=379μs, 100 frames, 0.1s
+  Pure RS-BM (hard) @ 5.50 dB: FER=9.800e-01, BER=2.988e-02, avg_f2m=659, lat=380μs, 100 frames, 0.1s
+  Pure RS-BM (hard) @ 6.00 dB: FER=1.000e+00, BER=2.462e-02, avg_f2m=656, lat=381μs, 100 frames, 0.1s
+  Pure RS-BM (hard) @ 6.50 dB: FER=9.500e-01, BER=2.304e-02, avg_f2m=660, lat=382μs, 100 frames, 0.1s
+  Pure RS-BM (hard) @ 7.00 dB: FER=7.400e-01, BER=1.503e-02, avg_f2m=657, lat=383μs, 100 frames, 0.1s
+  Pure RS-BM (hard) @ 7.50 dB: FER=4.600e-01, BER=8.099e-03, avg_f2m=635, lat=375μs, 100 frames, 0.1s
+  Pure RS-BM (hard) @ 8.00 dB: FER=3.000e-01, BER=4.474e-03, avg_f2m=608, lat=361μs, 100 frames, 0.1s
+
+--- Pure RS-LCC-BR (soft) ---
+  Pure RS-LCC-BR (soft) @ 4.00 dB: FER=1.000e+00, BER=6.772e-02, avg_f2m=5451, lat=2622μs, 100 frames, 0.4s
+  Pure RS-LCC-BR (soft) @ 4.50 dB: FER=1.000e+00, BER=6.257e-02, avg_f2m=5450, lat=2622μs, 100 frames, 0.4s
+  Pure RS-LCC-BR (soft) @ 5.00 dB: FER=1.000e+00, BER=5.409e-02, avg_f2m=5464, lat=2581μs, 100 frames, 0.3s
+  Pure RS-LCC-BR (soft) @ 5.50 dB: FER=9.800e-01, BER=4.482e-02, avg_f2m=5487, lat=2605μs, 100 frames, 0.4s
+  Pure RS-LCC-BR (soft) @ 6.00 dB: FER=1.000e+00, BER=4.202e-02, avg_f2m=5448, lat=2601μs, 100 frames, 0.4s
+  Pure RS-LCC-BR (soft) @ 6.50 dB: FER=9.400e-01, BER=3.658e-02, avg_f2m=5426, lat=2585μs, 100 frames, 0.4s
+  Pure RS-LCC-BR (soft) @ 7.00 dB: FER=7.300e-01, BER=2.699e-02, avg_f2m=5393, lat=2592μs, 100 frames, 0.4s
+  Pure RS-LCC-BR (soft) @ 7.50 dB: FER=4.700e-01, BER=1.409e-02, avg_f2m=5361, lat=2569μs, 100 frames, 0.4s
+  Pure RS-LCC-BR (soft) @ 8.00 dB: FER=3.000e-01, BER=7.427e-03, avg_f2m=5279, lat=2545μs, 100 frames, 0.3s
+
+--- Cascade A (LLOSD+LCC-BR) ---
+  Cascade A (LLOSD+LCC-BR) @ 4.00 dB: FER=1.000e+00, BER=1.727e-01, avg_f2m=5445, lat=7124μs, 100 frames, 0.8s
+  Cascade A (LLOSD+LCC-BR) @ 4.50 dB: FER=9.300e-01, BER=1.265e-01, avg_f2m=5428, lat=3301μs, 100 frames, 0.4s
+  Cascade A (LLOSD+LCC-BR) @ 5.00 dB: FER=7.800e-01, BER=8.181e-02, avg_f2m=5336, lat=3238μs, 100 frames, 0.4s
+  Cascade A (LLOSD+LCC-BR) @ 5.50 dB: FER=6.300e-01, BER=5.251e-02, avg_f2m=5103, lat=3249μs, 100 frames, 0.4s
+  Cascade A (LLOSD+LCC-BR) @ 6.00 dB: FER=3.600e-01, BER=2.930e-02, avg_f2m=4833, lat=2985μs, 100 frames, 0.4s
+  Cascade A (LLOSD+LCC-BR) @ 6.50 dB: FER=1.515e-01, BER=1.232e-02, avg_f2m=4589, lat=2892μs, 198 frames, 0.8s
+  Cascade A (LLOSD+LCC-BR) @ 7.00 dB: FER=8.197e-02, BER=5.848e-03, avg_f2m=4500, lat=2840μs, 366 frames, 1.4s
+  Cascade A (LLOSD+LCC-BR) @ 7.50 dB: FER=3.021e-02, BER=2.191e-03, avg_f2m=4428, lat=2805μs, 993 frames, 3.8s
+  Cascade A (LLOSD+LCC-BR) @ 8.00 dB: FER=1.267e-02, BER=7.602e-04, avg_f2m=4412, lat=2776μs, 1500 frames, 5.8s
+
+--- Cascade B (Lagrange shared) ---
+  Cascade B (Lagrange shared) @ 4.00 dB: FER=1.000e+00, BER=1.727e-01, avg_f2m=5040, lat=3340μs, 100 frames, 0.4s
+  Cascade B (Lagrange shared) @ 4.50 dB: FER=9.300e-01, BER=1.265e-01, avg_f2m=5023, lat=3298μs, 100 frames, 0.4s
+  Cascade B (Lagrange shared) @ 5.00 dB: FER=7.800e-01, BER=8.181e-02, avg_f2m=4931, lat=3225μs, 100 frames, 0.4s
+  Cascade B (Lagrange shared) @ 5.50 dB: FER=6.300e-01, BER=5.251e-02, avg_f2m=4698, lat=3116μs, 100 frames, 0.4s
+  Cascade B (Lagrange shared) @ 6.00 dB: FER=3.600e-01, BER=2.930e-02, avg_f2m=4428, lat=3009μs, 100 frames, 0.4s
+  Cascade B (Lagrange shared) @ 6.50 dB: FER=1.515e-01, BER=1.232e-02, avg_f2m=4184, lat=2890μs, 198 frames, 0.8s
+  Cascade B (Lagrange shared) @ 7.00 dB: FER=8.197e-02, BER=5.848e-03, avg_f2m=4095, lat=2848μs, 366 frames, 1.4s
+  Cascade B (Lagrange shared) @ 7.50 dB: FER=3.021e-02, BER=2.191e-03, avg_f2m=4023, lat=2801μs, 993 frames, 3.8s
+  Cascade B (Lagrange shared) @ 8.00 dB: FER=1.267e-02, BER=7.602e-04, avg_f2m=4007, lat=2792μs, 1500 frames, 5.8s
+
+Saved figures/smoke_n63.{png,pdf}

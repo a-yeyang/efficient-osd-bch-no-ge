@@ -1,0 +1,65 @@
+======================================================================
+KPI Verification: n=255 Scheme A vs baselines
+======================================================================
+
+@ 7.5 dB (Cascade FER=4.00e-01):
+  RS-BM:             6513 F₂ᵐ ops
+  RS-LCC-BR:       110844 F₂ᵐ ops
+  Cascade A:        91372 F₂ᵐ ops
+  Case (a) vs BM:      ++1302.9%  KPI ≤+10%: ✗
+  Case (b) vs LCC-BR:  + -17.6%  KPI ≤+10%: ✓
+  Clock cycles:
+    P=1  : RS-BM=      6513  RS-LCC-BR=    110844  Cascade=     91372
+    P=4  : RS-BM=      1628  RS-LCC-BR=     27711  Cascade=     22843
+    P=16 : RS-BM=       407  RS-LCC-BR=      6928  Cascade=      5711
+    P=64 : RS-BM=       102  RS-LCC-BR=      1732  Cascade=      1428
+
+@ 8.0 dB (Cascade FER=1.16e-01):
+  RS-BM:             6501 F₂ᵐ ops
+  RS-LCC-BR:       110493 F₂ᵐ ops
+  Cascade A:        82146 F₂ᵐ ops
+  Case (a) vs BM:      ++1163.6%  KPI ≤+10%: ✗
+  Case (b) vs LCC-BR:  + -25.7%  KPI ≤+10%: ✓
+  Clock cycles:
+    P=1  : RS-BM=      6501  RS-LCC-BR=    110493  Cascade=     82146
+    P=4  : RS-BM=      1625  RS-LCC-BR=     27623  Cascade=     20537
+    P=16 : RS-BM=       406  RS-LCC-BR=      6906  Cascade=      5134
+    P=64 : RS-BM=       102  RS-LCC-BR=      1726  Cascade=      1284
+
+@ 8.5 dB (Cascade FER=2.00e-02):
+  RS-BM:             6475 F₂ᵐ ops
+  RS-LCC-BR:       109131 F₂ᵐ ops
+  Cascade A:        78982 F₂ᵐ ops
+  Case (a) vs BM:      ++1119.7%  KPI ≤+10%: ✗
+  Case (b) vs LCC-BR:  + -27.6%  KPI ≤+10%: ✓
+  Clock cycles:
+    P=1  : RS-BM=      6475  RS-LCC-BR=    109131  Cascade=     78982
+    P=4  : RS-BM=      1619  RS-LCC-BR=     27283  Cascade=     19746
+    P=16 : RS-BM=       405  RS-LCC-BR=      6821  Cascade=      4936
+    P=64 : RS-BM=       101  RS-LCC-BR=      1705  Cascade=      1234
+
+@ 9.0 dB (Cascade FER=5.00e-03):
+  RS-BM:             6250 F₂ᵐ ops
+  RS-LCC-BR:       105004 F₂ᵐ ops
+  Cascade A:        78525 F₂ᵐ ops
+  Case (a) vs BM:      ++1156.3%  KPI ≤+10%: ✗
+  Case (b) vs LCC-BR:  + -25.2%  KPI ≤+10%: ✓
+  Clock cycles:
+    P=1  : RS-BM=      6250  RS-LCC-BR=    105004  Cascade=     78525
+    P=4  : RS-BM=      1563  RS-LCC-BR=     26251  Cascade=     19631
+    P=16 : RS-BM=       391  RS-LCC-BR=      6563  Cascade=      4908
+    P=64 : RS-BM=        98  RS-LCC-BR=      1641  Cascade=      1227
+
+@ 9.5 dB (Cascade FER=0.00e+00):
+  RS-BM:             5659 F₂ᵐ ops
+  RS-LCC-BR:        98259 F₂ᵐ ops
+  Cascade A:        78368 F₂ᵐ ops
+  Case (a) vs BM:      ++1284.8%  KPI ≤+10%: ✗
+  Case (b) vs LCC-BR:  + -20.2%  KPI ≤+10%: ✓
+  Clock cycles:
+    P=1  : RS-BM=      5659  RS-LCC-BR=     98259  Cascade=     78368
+    P=4  : RS-BM=      1415  RS-LCC-BR=     24565  Cascade=     19592
+    P=16 : RS-BM=       354  RS-LCC-BR=      6141  Cascade=      4898
+    P=64 : RS-BM=        88  RS-LCC-BR=      1535  Cascade=      1224
+
+Saved figures/n255_kpi_bars.{png,pdf}

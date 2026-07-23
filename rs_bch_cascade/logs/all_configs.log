@@ -1,0 +1,153 @@
+
+########## n255_A: RS(255,239) + BCH(255,239), total rate = 0.8784 ##########
+
+
+--- n255_A / pure_rs_bm ---
+  n255_A/pure_rs_bm @ 6.00 dB: FER=1.000e+00, BER=2.458e-02, avg_f2m=6511, lat=964μs, 100 frames, 0.7s
+  n255_A/pure_rs_bm @ 6.50 dB: FER=1.000e+00, BER=1.924e-02, avg_f2m=6515, lat=969μs, 100 frames, 0.7s
+  n255_A/pure_rs_bm @ 7.00 dB: FER=1.000e+00, BER=1.433e-02, avg_f2m=6515, lat=966μs, 100 frames, 0.7s
+  n255_A/pure_rs_bm @ 7.50 dB: FER=1.000e+00, BER=1.090e-02, avg_f2m=6513, lat=957μs, 100 frames, 0.6s
+  n255_A/pure_rs_bm @ 8.00 dB: FER=9.500e-01, BER=7.380e-03, avg_f2m=6501, lat=963μs, 100 frames, 0.7s
+  n255_A/pure_rs_bm @ 8.50 dB: FER=7.400e-01, BER=4.310e-03, avg_f2m=6475, lat=983μs, 100 frames, 0.7s
+  n255_A/pure_rs_bm @ 9.00 dB: FER=3.200e-01, BER=1.658e-03, avg_f2m=6250, lat=999μs, 100 frames, 0.7s
+  n255_A/pure_rs_bm @ 9.50 dB: FER=5.000e-02, BER=2.249e-04, avg_f2m=5654, lat=976μs, 200 frames, 1.3s
+  n255_A/pure_rs_bm @ 10.00 dB: FER=5.000e-03, BER=2.354e-05, avg_f2m=5086, lat=905μs, 200 frames, 1.3s
+  n255_A/pure_rs_bm @ 10.50 dB: FER=0.000e+00, BER=0.000e+00, avg_f2m=4699, lat=788μs, 200 frames, 1.2s
+
+--- n255_A / pure_rs_lccbr ---
+  n255_A/pure_rs_lccbr @ 6.00 dB: FER=1.000e+00, BER=2.458e-02, avg_f2m=110781, lat=11275μs, 100 frames, 1.7s
+  n255_A/pure_rs_lccbr @ 6.50 dB: FER=1.000e+00, BER=1.924e-02, avg_f2m=110796, lat=11375μs, 100 frames, 1.7s
+  n255_A/pure_rs_lccbr @ 7.00 dB: FER=1.000e+00, BER=1.433e-02, avg_f2m=110843, lat=11294μs, 100 frames, 1.7s
+  n255_A/pure_rs_lccbr @ 7.50 dB: FER=1.000e+00, BER=1.090e-02, avg_f2m=110844, lat=11311μs, 100 frames, 1.7s
+  n255_A/pure_rs_lccbr @ 8.00 dB: FER=9.500e-01, BER=7.380e-03, avg_f2m=110493, lat=11282μs, 100 frames, 1.7s
+  n255_A/pure_rs_lccbr @ 8.50 dB: FER=7.400e-01, BER=4.310e-03, avg_f2m=109131, lat=11278μs, 100 frames, 1.7s
+  n255_A/pure_rs_lccbr @ 9.00 dB: FER=3.200e-01, BER=1.658e-03, avg_f2m=105004, lat=11274μs, 100 frames, 1.7s
+  n255_A/pure_rs_lccbr @ 9.50 dB: FER=5.000e-02, BER=2.249e-04, avg_f2m=98211, lat=11292μs, 200 frames, 3.4s
+  n255_A/pure_rs_lccbr @ 10.00 dB: FER=5.000e-03, BER=2.354e-05, avg_f2m=90961, lat=10937μs, 200 frames, 3.3s
+  n255_A/pure_rs_lccbr @ 10.50 dB: FER=0.000e+00, BER=0.000e+00, avg_f2m=85620, lat=10586μs, 200 frames, 3.2s
+
+--- n255_A / scheme_a ---
+  n255_A/scheme_a @ 6.00 dB: FER=1.000e+00, BER=2.447e-01, avg_f2m=110786, lat=20063μs, 100 frames, 2.6s
+  n255_A/scheme_a @ 6.50 dB: FER=1.000e+00, BER=1.393e-01, avg_f2m=110813, lat=16077μs, 100 frames, 2.2s
+  n255_A/scheme_a @ 7.00 dB: FER=7.600e-01, BER=6.415e-02, avg_f2m=103007, lat=15317μs, 100 frames, 2.1s
+  n255_A/scheme_a @ 7.50 dB: FER=4.000e-01, BER=2.099e-02, avg_f2m=91372, lat=14073μs, 100 frames, 2.0s
+  n255_A/scheme_a @ 8.00 dB: FER=1.163e-01, BER=4.983e-03, avg_f2m=82146, lat=13090μs, 129 frames, 2.5s
+  n255_A/scheme_a @ 8.50 dB: FER=1.333e-02, BER=6.485e-04, avg_f2m=78758, lat=12473μs, 150 frames, 2.8s
+  n255_A/scheme_a @ 9.00 dB: FER=6.667e-03, BER=1.953e-04, avg_f2m=78571, lat=12213μs, 150 frames, 2.8s
+  n255_A/scheme_a @ 9.50 dB: FER=0.000e+00, BER=0.000e+00, avg_f2m=78393, lat=12051μs, 150 frames, 2.7s
+
+--- n255_A / scheme_b ---
+  n255_A/scheme_b @ 6.00 dB: FER=1.000e+00, BER=2.447e-01, avg_f2m=106707, lat=16675μs, 100 frames, 2.3s
+  n255_A/scheme_b @ 6.50 dB: FER=1.000e+00, BER=1.393e-01, avg_f2m=106734, lat=16199μs, 100 frames, 2.2s
+  n255_A/scheme_b @ 7.00 dB: FER=7.600e-01, BER=6.415e-02, avg_f2m=98928, lat=15363μs, 100 frames, 2.2s
+  n255_A/scheme_b @ 7.50 dB: FER=4.000e-01, BER=2.099e-02, avg_f2m=87293, lat=14156μs, 100 frames, 2.0s
+  n255_A/scheme_b @ 8.00 dB: FER=1.163e-01, BER=4.983e-03, avg_f2m=78067, lat=13111μs, 129 frames, 2.5s
+  n255_A/scheme_b @ 8.50 dB: FER=1.333e-02, BER=6.485e-04, avg_f2m=74679, lat=12474μs, 150 frames, 2.8s
+  n255_A/scheme_b @ 9.00 dB: FER=6.667e-03, BER=1.953e-04, avg_f2m=74492, lat=12235μs, 150 frames, 2.8s
+  n255_A/scheme_b @ 9.50 dB: FER=0.000e+00, BER=0.000e+00, avg_f2m=74314, lat=12059μs, 150 frames, 2.7s
+
+########## n255_B: RS(255,235) + BCH(255,247), total rate = 0.8927 ##########
+
+
+--- n255_B / pure_rs_bm ---
+  n255_B/pure_rs_bm @ 6.00 dB: FER=1.000e+00, BER=2.374e-02, avg_f2m=8120, lat=973μs, 100 frames, 0.7s
+  n255_B/pure_rs_bm @ 6.50 dB: FER=1.000e+00, BER=1.860e-02, avg_f2m=8124, lat=993μs, 100 frames, 0.7s
+  n255_B/pure_rs_bm @ 7.00 dB: FER=1.000e+00, BER=1.388e-02, avg_f2m=8116, lat=974μs, 100 frames, 0.7s
+  n255_B/pure_rs_bm @ 7.50 dB: FER=1.000e+00, BER=1.005e-02, avg_f2m=8120, lat=983μs, 100 frames, 0.7s
+  n255_B/pure_rs_bm @ 8.00 dB: FER=8.000e-01, BER=6.266e-03, avg_f2m=8125, lat=1014μs, 100 frames, 0.7s
+  n255_B/pure_rs_bm @ 8.50 dB: FER=3.600e-01, BER=2.330e-03, avg_f2m=7984, lat=1042μs, 100 frames, 0.7s
+  n255_B/pure_rs_bm @ 9.00 dB: FER=8.772e-02, BER=5.101e-04, avg_f2m=7310, lat=1033μs, 171 frames, 1.2s
+  n255_B/pure_rs_bm @ 9.50 dB: FER=0.000e+00, BER=0.000e+00, avg_f2m=6660, lat=989μs, 200 frames, 1.3s
+
+--- n255_B / pure_rs_lccbr ---
+  n255_B/pure_rs_lccbr @ 6.00 dB: FER=1.000e+00, BER=2.374e-02, avg_f2m=138103, lat=12225μs, 100 frames, 1.8s
+  n255_B/pure_rs_lccbr @ 6.50 dB: FER=1.000e+00, BER=1.860e-02, avg_f2m=138138, lat=12217μs, 100 frames, 1.8s
+  n255_B/pure_rs_lccbr @ 7.00 dB: FER=1.000e+00, BER=1.388e-02, avg_f2m=138112, lat=12287μs, 100 frames, 1.8s
+  n255_B/pure_rs_lccbr @ 7.50 dB: FER=1.000e+00, BER=1.005e-02, avg_f2m=138132, lat=12218μs, 100 frames, 1.8s
+  n255_B/pure_rs_lccbr @ 8.00 dB: FER=8.000e-01, BER=6.266e-03, avg_f2m=136643, lat=12199μs, 100 frames, 1.8s
+  n255_B/pure_rs_lccbr @ 8.50 dB: FER=3.600e-01, BER=2.330e-03, avg_f2m=132525, lat=12309μs, 100 frames, 1.8s
+  n255_B/pure_rs_lccbr @ 9.00 dB: FER=8.772e-02, BER=5.101e-04, avg_f2m=124465, lat=12505μs, 171 frames, 3.1s
+  n255_B/pure_rs_lccbr @ 9.50 dB: FER=0.000e+00, BER=0.000e+00, avg_f2m=116014, lat=12200μs, 200 frames, 3.6s
+
+--- n255_B / scheme_a ---
+  n255_B/scheme_a @ 6.00 dB: FER=1.000e+00, BER=3.048e-01, avg_f2m=138132, lat=14775μs, 100 frames, 2.1s
+  n255_B/scheme_a @ 6.50 dB: FER=1.000e+00, BER=2.321e-01, avg_f2m=138169, lat=14397μs, 100 frames, 2.1s
+  n255_B/scheme_a @ 7.00 dB: FER=1.000e+00, BER=1.696e-01, avg_f2m=138083, lat=14452μs, 100 frames, 2.1s
+  n255_B/scheme_a @ 7.50 dB: FER=9.500e-01, BER=9.904e-02, avg_f2m=136771, lat=14401μs, 100 frames, 2.1s
+  n255_B/scheme_a @ 8.00 dB: FER=6.900e-01, BER=4.365e-02, avg_f2m=125661, lat=13840μs, 100 frames, 2.0s
+  n255_B/scheme_a @ 8.50 dB: FER=2.400e-01, BER=1.331e-02, avg_f2m=107265, lat=13043μs, 100 frames, 1.9s
+  n255_B/scheme_a @ 9.00 dB: FER=1.600e-01, BER=6.952e-03, avg_f2m=102899, lat=12911μs, 100 frames, 1.9s
+  n255_B/scheme_a @ 9.50 dB: FER=2.667e-02, BER=9.362e-04, avg_f2m=96073, lat=12577μs, 150 frames, 2.8s
+  n255_B/scheme_a @ 10.00 dB: FER=0.000e+00, BER=0.000e+00, avg_f2m=94960, lat=12576μs, 150 frames, 2.8s
+
+--- n255_B / scheme_b ---
+  n255_B/scheme_b @ 6.00 dB: FER=1.000e+00, BER=3.048e-01, avg_f2m=133177, lat=14717μs, 100 frames, 2.1s
+  n255_B/scheme_b @ 6.50 dB: FER=1.000e+00, BER=2.321e-01, avg_f2m=133214, lat=14582μs, 100 frames, 2.1s
+  n255_B/scheme_b @ 7.00 dB: FER=1.000e+00, BER=1.696e-01, avg_f2m=133128, lat=14523μs, 100 frames, 2.1s
+  n255_B/scheme_b @ 7.50 dB: FER=9.500e-01, BER=9.904e-02, avg_f2m=131816, lat=14339μs, 100 frames, 2.1s
+  n255_B/scheme_b @ 8.00 dB: FER=6.900e-01, BER=4.365e-02, avg_f2m=120706, lat=13845μs, 100 frames, 2.0s
+  n255_B/scheme_b @ 8.50 dB: FER=2.400e-01, BER=1.331e-02, avg_f2m=102310, lat=13196μs, 100 frames, 2.0s
+  n255_B/scheme_b @ 9.00 dB: FER=1.600e-01, BER=6.952e-03, avg_f2m=97944, lat=12761μs, 100 frames, 1.9s
+  n255_B/scheme_b @ 9.50 dB: FER=2.667e-02, BER=9.362e-04, avg_f2m=91118, lat=12526μs, 150 frames, 2.8s
+  n255_B/scheme_b @ 10.00 dB: FER=0.000e+00, BER=0.000e+00, avg_f2m=90005, lat=12399μs, 150 frames, 2.8s
+
+########## n127: RS(127,119) + BCH(127,120), total rate = 0.8854 ##########
+
+
+--- n127 / pure_rs_bm ---
+  n127/pure_rs_bm @ 5.00 dB: FER=1.000e+00, BER=3.838e-02, avg_f2m=1691, lat=447μs, 100 frames, 0.3s
+  n127/pure_rs_bm @ 5.50 dB: FER=1.000e+00, BER=2.971e-02, avg_f2m=1694, lat=445μs, 100 frames, 0.3s
+  n127/pure_rs_bm @ 6.00 dB: FER=1.000e+00, BER=2.568e-02, avg_f2m=1697, lat=438μs, 100 frames, 0.3s
+  n127/pure_rs_bm @ 6.50 dB: FER=1.000e+00, BER=2.020e-02, avg_f2m=1695, lat=433μs, 100 frames, 0.3s
+  n127/pure_rs_bm @ 7.00 dB: FER=1.000e+00, BER=1.537e-02, avg_f2m=1696, lat=437μs, 100 frames, 0.3s
+  n127/pure_rs_bm @ 7.50 dB: FER=9.700e-01, BER=1.139e-02, avg_f2m=1693, lat=440μs, 100 frames, 0.3s
+  n127/pure_rs_bm @ 8.00 dB: FER=8.000e-01, BER=7.287e-03, avg_f2m=1676, lat=443μs, 100 frames, 0.3s
+  n127/pure_rs_bm @ 8.50 dB: FER=5.500e-01, BER=4.166e-03, avg_f2m=1659, lat=445μs, 100 frames, 0.3s
+  n127/pure_rs_bm @ 9.00 dB: FER=2.100e-01, BER=1.441e-03, avg_f2m=1543, lat=437μs, 100 frames, 0.3s
+  n127/pure_rs_bm @ 9.50 dB: FER=5.000e-02, BER=3.782e-04, avg_f2m=1409, lat=414μs, 200 frames, 0.5s
+  n127/pure_rs_bm @ 10.00 dB: FER=5.000e-03, BER=2.401e-05, avg_f2m=1272, lat=357μs, 200 frames, 0.5s
+  n127/pure_rs_bm @ 10.50 dB: FER=5.000e-03, BER=3.001e-05, avg_f2m=1171, lat=290μs, 200 frames, 0.5s
+  n127/pure_rs_bm @ 11.00 dB: FER=0.000e+00, BER=0.000e+00, avg_f2m=1089, lat=226μs, 200 frames, 0.5s
+
+--- n127 / pure_rs_lccbr ---
+  n127/pure_rs_lccbr @ 5.00 dB: FER=1.000e+00, BER=4.430e-02, avg_f2m=28123, lat=5300μs, 100 frames, 0.8s
+  n127/pure_rs_lccbr @ 5.50 dB: FER=1.000e+00, BER=3.664e-02, avg_f2m=28043, lat=5285μs, 100 frames, 0.8s
+  n127/pure_rs_lccbr @ 6.00 dB: FER=1.000e+00, BER=3.196e-02, avg_f2m=27983, lat=5279μs, 100 frames, 0.8s
+  n127/pure_rs_lccbr @ 6.50 dB: FER=1.000e+00, BER=2.672e-02, avg_f2m=28076, lat=5308μs, 100 frames, 0.8s
+  n127/pure_rs_lccbr @ 7.00 dB: FER=1.000e+00, BER=2.274e-02, avg_f2m=27974, lat=5271μs, 100 frames, 0.7s
+  n127/pure_rs_lccbr @ 7.50 dB: FER=9.600e-01, BER=1.858e-02, avg_f2m=27956, lat=5310μs, 100 frames, 0.8s
+  n127/pure_rs_lccbr @ 8.00 dB: FER=8.000e-01, BER=1.270e-02, avg_f2m=27846, lat=5304μs, 100 frames, 0.8s
+  n127/pure_rs_lccbr @ 8.50 dB: FER=5.300e-01, BER=8.151e-03, avg_f2m=27552, lat=5221μs, 100 frames, 0.7s
+  n127/pure_rs_lccbr @ 9.00 dB: FER=2.100e-01, BER=2.857e-03, avg_f2m=26848, lat=5271μs, 100 frames, 0.7s
+  n127/pure_rs_lccbr @ 9.50 dB: FER=4.500e-02, BER=5.042e-04, avg_f2m=25994, lat=5278μs, 200 frames, 1.5s
+  n127/pure_rs_lccbr @ 10.00 dB: FER=5.000e-03, BER=2.401e-05, avg_f2m=25005, lat=5215μs, 200 frames, 1.5s
+  n127/pure_rs_lccbr @ 10.50 dB: FER=5.000e-03, BER=3.001e-05, avg_f2m=24216, lat=5117μs, 200 frames, 1.5s
+  n127/pure_rs_lccbr @ 11.00 dB: FER=0.000e+00, BER=0.000e+00, avg_f2m=23510, lat=5063μs, 200 frames, 1.5s
+
+--- n127 / scheme_a ---
+  n127/scheme_a @ 5.00 dB: FER=1.000e+00, BER=2.633e-01, avg_f2m=27947, lat=6377μs, 100 frames, 0.9s
+  n127/scheme_a @ 5.50 dB: FER=1.000e+00, BER=2.141e-01, avg_f2m=28014, lat=6289μs, 100 frames, 0.9s
+  n127/scheme_a @ 6.00 dB: FER=9.900e-01, BER=1.515e-01, avg_f2m=28033, lat=6237μs, 100 frames, 0.9s
+  n127/scheme_a @ 6.50 dB: FER=9.300e-01, BER=1.155e-01, avg_f2m=27580, lat=6281μs, 100 frames, 0.9s
+  n127/scheme_a @ 7.00 dB: FER=7.200e-01, BER=5.364e-02, avg_f2m=26625, lat=6234μs, 100 frames, 0.9s
+  n127/scheme_a @ 7.50 dB: FER=3.800e-01, BER=2.322e-02, avg_f2m=24922, lat=6105μs, 100 frames, 0.9s
+  n127/scheme_a @ 8.00 dB: FER=1.700e-01, BER=8.619e-03, avg_f2m=23810, lat=6056μs, 100 frames, 0.9s
+  n127/scheme_a @ 8.50 dB: FER=2.667e-02, BER=1.505e-03, avg_f2m=23000, lat=5947μs, 150 frames, 1.3s
+  n127/scheme_a @ 9.00 dB: FER=1.333e-02, BER=6.643e-04, avg_f2m=22909, lat=5958μs, 150 frames, 1.3s
+  n127/scheme_a @ 9.50 dB: FER=1.333e-02, BER=4.242e-04, avg_f2m=22936, lat=5932μs, 150 frames, 1.3s
+  n127/scheme_a @ 10.00 dB: FER=0.000e+00, BER=0.000e+00, avg_f2m=22833, lat=5908μs, 150 frames, 1.3s
+
+--- n127 / scheme_b ---
+  n127/scheme_b @ 5.00 dB: FER=1.000e+00, BER=2.633e-01, avg_f2m=26868, lat=6403μs, 100 frames, 0.9s
+  n127/scheme_b @ 5.50 dB: FER=1.000e+00, BER=2.141e-01, avg_f2m=26935, lat=6344μs, 100 frames, 0.9s
+  n127/scheme_b @ 6.00 dB: FER=9.900e-01, BER=1.515e-01, avg_f2m=26954, lat=6364μs, 100 frames, 0.9s
+  n127/scheme_b @ 6.50 dB: FER=9.300e-01, BER=1.155e-01, avg_f2m=26501, lat=6258μs, 100 frames, 0.9s
+  n127/scheme_b @ 7.00 dB: FER=7.200e-01, BER=5.364e-02, avg_f2m=25546, lat=6173μs, 100 frames, 0.9s
+  n127/scheme_b @ 7.50 dB: FER=3.800e-01, BER=2.322e-02, avg_f2m=23843, lat=6025μs, 100 frames, 0.9s
+  n127/scheme_b @ 8.00 dB: FER=1.700e-01, BER=8.619e-03, avg_f2m=22731, lat=6003μs, 100 frames, 0.8s
+  n127/scheme_b @ 8.50 dB: FER=2.667e-02, BER=1.505e-03, avg_f2m=21921, lat=5938μs, 150 frames, 1.3s
+  n127/scheme_b @ 9.00 dB: FER=1.333e-02, BER=6.643e-04, avg_f2m=21830, lat=5951μs, 150 frames, 1.3s
+  n127/scheme_b @ 9.50 dB: FER=1.333e-02, BER=4.242e-04, avg_f2m=21857, lat=5931μs, 150 frames, 1.3s
+  n127/scheme_b @ 10.00 dB: FER=0.000e+00, BER=0.000e+00, avg_f2m=21754, lat=5953μs, 150 frames, 1.3s
+
+Saved figures/all_configs_fer.{png,pdf}

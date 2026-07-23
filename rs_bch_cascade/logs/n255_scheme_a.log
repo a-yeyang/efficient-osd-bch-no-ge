@@ -1,0 +1,49 @@
+[Main experiment: n=255 Scheme A] RS(255,239) + BCH(255,239), total rate = 0.8784
+
+--- Pure RS-BM ---
+  Pure RS-BM @ 6.00 dB: FER=1.000e+00, BER=2.458e-02, avg_f2m=6511, lat=990μs, 100 frames, 0.7s
+  Pure RS-BM @ 6.50 dB: FER=1.000e+00, BER=1.924e-02, avg_f2m=6515, lat=1081μs, 100 frames, 0.7s
+  Pure RS-BM @ 7.00 dB: FER=1.000e+00, BER=1.433e-02, avg_f2m=6515, lat=963μs, 100 frames, 0.7s
+  Pure RS-BM @ 7.50 dB: FER=1.000e+00, BER=1.090e-02, avg_f2m=6513, lat=959μs, 100 frames, 0.6s
+  Pure RS-BM @ 8.00 dB: FER=9.500e-01, BER=7.380e-03, avg_f2m=6501, lat=1003μs, 100 frames, 0.7s
+  Pure RS-BM @ 8.50 dB: FER=7.400e-01, BER=4.310e-03, avg_f2m=6475, lat=984μs, 100 frames, 0.7s
+  Pure RS-BM @ 9.00 dB: FER=3.200e-01, BER=1.658e-03, avg_f2m=6250, lat=999μs, 100 frames, 0.7s
+  Pure RS-BM @ 9.50 dB: FER=4.545e-02, BER=2.092e-04, avg_f2m=5659, lat=977μs, 330 frames, 2.2s
+  Pure RS-BM @ 10.00 dB: FER=2.500e-03, BER=1.177e-05, avg_f2m=5098, lat=909μs, 400 frames, 2.6s
+  Pure RS-BM @ 10.50 dB: FER=0.000e+00, BER=0.000e+00, avg_f2m=4687, lat=793μs, 400 frames, 2.5s
+
+--- Pure RS-LCC-BR ---
+  Pure RS-LCC-BR @ 6.00 dB: FER=1.000e+00, BER=2.458e-02, avg_f2m=110781, lat=11288μs, 100 frames, 1.7s
+  Pure RS-LCC-BR @ 6.50 dB: FER=1.000e+00, BER=1.924e-02, avg_f2m=110796, lat=11377μs, 100 frames, 1.7s
+  Pure RS-LCC-BR @ 7.00 dB: FER=1.000e+00, BER=1.433e-02, avg_f2m=110843, lat=11355μs, 100 frames, 1.7s
+  Pure RS-LCC-BR @ 7.50 dB: FER=1.000e+00, BER=1.090e-02, avg_f2m=110844, lat=11324μs, 100 frames, 1.7s
+  Pure RS-LCC-BR @ 8.00 dB: FER=9.500e-01, BER=7.380e-03, avg_f2m=110493, lat=11554μs, 100 frames, 1.7s
+  Pure RS-LCC-BR @ 8.50 dB: FER=7.400e-01, BER=4.310e-03, avg_f2m=109131, lat=11250μs, 100 frames, 1.7s
+  Pure RS-LCC-BR @ 9.00 dB: FER=3.200e-01, BER=1.658e-03, avg_f2m=105004, lat=11312μs, 100 frames, 1.7s
+  Pure RS-LCC-BR @ 9.50 dB: FER=4.545e-02, BER=2.092e-04, avg_f2m=98259, lat=11319μs, 330 frames, 5.6s
+  Pure RS-LCC-BR @ 10.00 dB: FER=2.500e-03, BER=1.177e-05, avg_f2m=91099, lat=11097μs, 400 frames, 6.6s
+  Pure RS-LCC-BR @ 10.50 dB: FER=0.000e+00, BER=0.000e+00, avg_f2m=85425, lat=10647μs, 400 frames, 6.5s
+
+--- Cascade A (LLOSD+LCC-BR) ---
+  Cascade A (LLOSD+LCC-BR) @ 6.00 dB: FER=1.000e+00, BER=2.447e-01, avg_f2m=110786, lat=20976μs, 100 frames, 2.7s
+  Cascade A (LLOSD+LCC-BR) @ 6.50 dB: FER=1.000e+00, BER=1.393e-01, avg_f2m=110813, lat=16285μs, 100 frames, 2.2s
+  Cascade A (LLOSD+LCC-BR) @ 7.00 dB: FER=7.600e-01, BER=6.415e-02, avg_f2m=103007, lat=15579μs, 100 frames, 2.2s
+  Cascade A (LLOSD+LCC-BR) @ 7.50 dB: FER=4.000e-01, BER=2.099e-02, avg_f2m=91372, lat=14221μs, 100 frames, 2.0s
+  Cascade A (LLOSD+LCC-BR) @ 8.00 dB: FER=1.163e-01, BER=4.983e-03, avg_f2m=82146, lat=13245μs, 129 frames, 2.5s
+  Cascade A (LLOSD+LCC-BR) @ 8.50 dB: FER=2.000e-02, BER=9.414e-04, avg_f2m=78982, lat=12586μs, 200 frames, 3.7s
+  Cascade A (LLOSD+LCC-BR) @ 9.00 dB: FER=5.000e-03, BER=1.464e-04, avg_f2m=78525, lat=12470μs, 200 frames, 3.7s
+  Cascade A (LLOSD+LCC-BR) @ 9.50 dB: FER=0.000e+00, BER=0.000e+00, avg_f2m=78368, lat=12160μs, 200 frames, 3.7s
+
+
+=== Per-frame F_2^m ops (avg) ===
+Eb/N0 (dB)          RS-BM    RS-LCC-BR    Cascade A
+6.00                 6511       110781       110786
+6.50                 6515       110796       110813
+7.00                 6515       110843       103007
+7.50                 6513       110844        91372
+8.00                 6501       110493        82146
+8.50                 6475       109131        78982
+9.00                 6250       105004        78525
+9.50                 5659        98259        78368
+
+Saved figures/n255_scheme_a_*.{png,pdf}
