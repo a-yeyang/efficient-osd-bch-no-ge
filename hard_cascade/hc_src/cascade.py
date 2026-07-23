@@ -134,15 +134,36 @@ class HardCascadedCodec:
         }
 
     # -----------------------------------------------------
-    def latency_cycles(self, lagrange_shared: bool = False) -> int:
-        """Total cascade clock cycles."""
+    def latency_cycles(self, lagrange_mode: str = "none") -> int:
+        """Total cascade clock cycles.
+
+        lagrange_mode:
+            'none'      no sharing.
+            'v1'        share alpha table + syndrome unit  (save 1 cyc)
+            'v2'        v1 + share GF multiplier array     (save 2 cyc)
+            True        (backward-compat) same as 'v1'
+            False       (backward-compat) same as 'none'
+        """
+        # BCH cycles depend on decoder AND (for Direct) on field size m
         if self.bch_decoder_name == "conv":
-            bch_cyc = LatencyModel.bch_conv_cycles(2)
+            bch_cyc = LatencyModel.bch_conv_cycles(2, m=self.cfg.m)
         else:
-            bch_cyc = LatencyModel.bch_direct_cycles(2)
-        if lagrange_shared:
-            return LatencyModel.cascade_lagrange_shared(bch_cyc, self.cfg.t_rs)
-        return LatencyModel.cascade_serial(bch_cyc, self.cfg.t_rs)
+            bch_cyc = LatencyModel.bch_direct_cycles(2, m=self.cfg.m)
+
+        # Normalize legacy boolean
+        if lagrange_mode is True:
+            lagrange_mode = "v1"
+        elif lagrange_mode is False:
+            lagrange_mode = "none"
+
+        if lagrange_mode == "none":
+            return LatencyModel.cascade_serial(bch_cyc, self.cfg.t_rs)
+        elif lagrange_mode == "v1":
+            return LatencyModel.cascade_lagrange_v1(bch_cyc, self.cfg.t_rs)
+        elif lagrange_mode == "v2":
+            return LatencyModel.cascade_lagrange_v2(bch_cyc, self.cfg.t_rs)
+        else:
+            raise ValueError(f"unknown lagrange_mode {lagrange_mode}")
 
 
 class PureRSHardCodec:

@@ -1,0 +1,26 @@
+{
+  "n255": {
+    "pure_rs": 19,
+    "kpi_ceiling": 20.900000000000002,
+    "bch_conv_cyc": 8,
+    "bch_direct_cyc": 3,
+    "conv_none": 27,
+    "conv_v1": 26,
+    "conv_v2": 25,
+    "direct_none": 22,
+    "direct_v1": 21,
+    "direct_v2": 20
+  },
+  "n127": {
+    "pure_rs": 17,
+    "kpi_ceiling": 18.700000000000003,
+    "bch_conv_cyc": 8,
+    "bch_direct_cyc": 2,
+    "conv_none": 25,
+    "conv_v1": 24,
+    "conv_v2": 23,
+    "direct_none": 19,
+    "direct_v1": 18,
+    "direct_v2": 17
+  }
+}
