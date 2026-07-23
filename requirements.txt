@@ -1,0 +1,5 @@
+# Python reference implementation and report build dependencies
+numpy>=1.26
+matplotlib>=3.8
+numba>=0.61
+python-docx>=1.1

@@ -1,0 +1,80 @@
+{
+  "results": {
+    "n255": {
+      "pure_rs": {
+        "ebn0_db": 8,
+        "ser": 0.071129707112970716,
+        "ber": 0.00889121338912134,
+        "fer": 1,
+        "n_frames": 2,
+        "n_frame_errors": 2,
+        "avg_f2m_ops": 6526.5
+      },
+      "cascade_conv": {
+        "ebn0_db": 8,
+        "ser": 0,
+        "ber": 0,
+        "fer": 0,
+        "n_frames": 2,
+        "n_frame_errors": 0,
+        "avg_f2m_ops": 10409
+      },
+      "cascade_direct": {
+        "ebn0_db": 8,
+        "ser": 0,
+        "ber": 0,
+        "fer": 0,
+        "n_frames": 2,
+        "n_frame_errors": 0,
+        "avg_f2m_ops": 9407
+      }
+    },
+    "n127": {
+      "pure_rs": {
+        "ebn0_db": 7,
+        "ser": 0.084070796460177,
+        "ber": 0.012642225031605562,
+        "fer": 1,
+        "n_frames": 2,
+        "n_frame_errors": 2,
+        "avg_f2m_ops": 2919.5
+      },
+      "cascade_conv": {
+        "ebn0_db": 7,
+        "ser": 0,
+        "ber": 0,
+        "fer": 0,
+        "n_frames": 2,
+        "n_frame_errors": 0,
+        "avg_f2m_ops": 4715.5
+      },
+      "cascade_direct": {
+        "ebn0_db": 7,
+        "ser": 0,
+        "ber": 0,
+        "fer": 0,
+        "n_frames": 2,
+        "n_frame_errors": 0,
+        "avg_f2m_ops": 4297.5
+      }
+    }
+  },
+  "latency": {
+    "n255": {
+      "pure_rs": 19,
+      "conv_no_share": 27,
+      "direct_no_share": 22,
+      "conv_lagrange": 26,
+      "direct_lagrange": 21,
+      "kpi_target": 20
+    },
+    "n127": {
+      "pure_rs": 17,
+      "conv_no_share": 25,
+      "direct_no_share": 20,
+      "conv_lagrange": 24,
+      "direct_lagrange": 19,
+      "kpi_target": 18
+    }
+  }
+}

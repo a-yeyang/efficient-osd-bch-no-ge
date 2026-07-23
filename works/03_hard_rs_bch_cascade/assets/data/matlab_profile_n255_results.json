@@ -1,0 +1,46 @@
+{
+  "results": {
+    "pure_rs": {
+      "ebn0_db": 8,
+      "ser": 0.071129707112970716,
+      "ber": 0.00889121338912134,
+      "fer": 1,
+      "n_frames": 2,
+      "n_frame_errors": 2,
+      "avg_f2m_ops": 6526.5
+    },
+    "cascade_conv": {
+      "ebn0_db": 8,
+      "ser": 0,
+      "ber": 0,
+      "fer": 0,
+      "n_frames": 2,
+      "n_frame_errors": 0,
+      "avg_f2m_ops": 10409
+    },
+    "cascade_direct": {
+      "ebn0_db": 8,
+      "ser": 0,
+      "ber": 0,
+      "fer": 0,
+      "n_frames": 2,
+      "n_frame_errors": 0,
+      "avg_f2m_ops": 9407
+    }
+  },
+  "latency": {
+    "pure_rs": 19,
+    "conv_no_share": 27,
+    "direct_no_share": 22,
+    "conv_lagrange": 26,
+    "direct_lagrange": 21,
+    "kpi_target": 20
+  },
+  "config": {
+    "m": 8,
+    "k_rs": 239,
+    "n_rs": 255,
+    "t_rs": 8,
+    "description": "RS(255,239, t=8) + BCH(255, t=2)"
+  }
+}

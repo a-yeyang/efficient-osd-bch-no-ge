@@ -43,3 +43,8 @@ Thumbs.db
 
 # Project-specific: logs and intermediate outputs that are safe to regenerate
 logs/*.log
+/tmp/
+
+# MATLAB runtime/editor artifacts
+*.asv
+matlab_crash_dump.*
