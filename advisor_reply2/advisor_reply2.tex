@@ -335,13 +335,13 @@ Lagendijk 论文只给了 BCH 的 direct 译码。但 RS 也可以用类似的 d
 
 \subsection{Q8. 交付形式}
 
-\begin{actionbox}[title=\textbf{Q8. Python vs Matlab，是否需要 FPGA 综合？}]
-Lagendijk 论文最强的部分是 \textbf{FPGA / ASIC 综合报告}（Table V/VI）。请问本次交付：
+\begin{actionbox}[title=\textbf{Q8. Python vs Matlab？}]
+Lagendijk 论文的时延数字来自硬件综合，但本课题的目标是\textbf{在算法层面验证时延优势}
+（用抽象的时钟周期模型 + $\mathbb{F}_{2^m}$ ops 双口径）。请问本次交付：
 
 \begin{itemize}[leftmargin=1em, itemsep=1pt]
-\item [(a)] 只做 Python 仿真 + 抽象时延模型 \textbf{(基础交付)}
-\item [(b)] 加上 Matlab port
-\item [(c)] 加上 FPGA 综合（Verilog + Vivado），产出真实硬件时延数字 \textbf{(工作量翻倍但最有说服力)}
+\item [(a)] 只做 Python 仿真 + 抽象时延模型 \textbf{(推荐, 与第一阶段一致)}
+\item [(b)] 加上 Matlab port (与第一阶段的最终交付格式一致)
 \end{itemize}
 \end{actionbox}
 
