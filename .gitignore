@@ -43,3 +43,18 @@ Thumbs.db
 
 # Project-specific: logs and intermediate outputs that are safe to regenerate
 logs/*.log
+
+# Node (pptxgenjs deck builder deps — regenerated via `npm install`)
+node_modules/
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# Office temp lock files
+~$*

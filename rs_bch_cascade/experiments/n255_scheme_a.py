@@ -53,7 +53,7 @@ def main():
         json.dump(all_results, f, indent=2, default=str)
 
     # Plot BER-SNR
-    plt.figure(figsize=(7, 5))
+    plt.figure(figsize=(8, 5))
     styles = {
         "pure_rs_bm": ("D-", "red", "Pure RS-BM"),
         "pure_rs_lccbr": ("s-", "orange", "Pure RS-LCC-BR"),
@@ -68,13 +68,13 @@ def main():
     plt.ylabel("FER")
     plt.grid(True, which="both", alpha=0.3)
     plt.legend()
-    plt.title(f"n=255 minimum closed loop: {cfg.describe()}")
+    plt.title(f"n=255 minimum closed loop: {cfg.describe()}", fontsize=12.5)
     plt.tight_layout()
     plt.savefig("figures/n255_scheme_a_fer.png", dpi=140)
     plt.savefig("figures/n255_scheme_a_fer.pdf")
 
     # BER plot
-    plt.figure(figsize=(7, 5))
+    plt.figure(figsize=(8, 5))
     for k, (mk, c, label) in styles.items():
         r = all_results[k]
         ebn = r["ebn0_db"]
@@ -84,7 +84,7 @@ def main():
     plt.ylabel("BER (info bits)")
     plt.grid(True, which="both", alpha=0.3)
     plt.legend()
-    plt.title(f"n=255 minimum closed loop: {cfg.describe()}")
+    plt.title(f"n=255 minimum closed loop: {cfg.describe()}", fontsize=12.5)
     plt.tight_layout()
     plt.savefig("figures/n255_scheme_a_ber.png", dpi=140)
     plt.savefig("figures/n255_scheme_a_ber.pdf")
