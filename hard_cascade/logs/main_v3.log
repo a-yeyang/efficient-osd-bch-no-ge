@@ -1,0 +1,62 @@
+==============================================================================
+Config1 (KP4): RS(544,514, t=15)/GF(2^10) + BCH(144,136, t=1)/GF(2^8)
+  Cascade(Direct)        @  6.0 dB: BER=2.484e-02 FER=1.000e+00 f2m=38892 (80f 1.6s)
+  Cascade(Direct)        @  6.5 dB: BER=1.803e-02 FER=1.000e+00 f2m=38927 (80f 1.6s)
+  Cascade(Direct)        @  7.0 dB: BER=1.288e-02 FER=1.000e+00 f2m=38941 (80f 1.5s)
+  Cascade(Direct)        @  7.5 dB: BER=8.378e-03 FER=1.000e+00 f2m=38932 (80f 1.6s)
+  Cascade(Direct)        @  8.0 dB: BER=4.521e-03 FER=9.000e-01 f2m=38711 (80f 1.6s)
+  Cascade(Direct)        @  8.5 dB: BER=1.225e-03 FER=3.125e-01 f2m=36121 (128f 2.5s)
+  Cascade(Direct)        @  9.0 dB: BER=7.043e-05 FER=2.133e-02 f2m=29781 (1500f 28.8s)
+  Cascade(Direct)        @  9.5 dB: BER=0.000e+00 FER=0.000e+00 f2m=25545 (1500f 27.6s)
+  Pure RS-BM             @  6.0 dB: BER=2.473e-02 FER=1.000e+00 f2m=33170 (80f 1.4s)
+  Pure RS-BM             @  6.5 dB: BER=1.932e-02 FER=1.000e+00 f2m=33186 (80f 1.4s)
+  Pure RS-BM             @  7.0 dB: BER=1.450e-02 FER=1.000e+00 f2m=33207 (80f 1.4s)
+  Pure RS-BM             @  7.5 dB: BER=1.077e-02 FER=1.000e+00 f2m=33180 (80f 1.4s)
+  Pure RS-BM             @  8.0 dB: BER=7.636e-03 FER=1.000e+00 f2m=33168 (80f 1.4s)
+  Pure RS-BM             @  8.5 dB: BER=5.207e-03 FER=1.000e+00 f2m=33185 (80f 1.4s)
+  Pure RS-BM             @  9.0 dB: BER=3.290e-03 FER=8.500e-01 f2m=33182 (80f 1.4s)
+  Pure RS-BM             @  9.5 dB: BER=5.005e-04 FER=1.527e-01 f2m=30316 (262f 4.7s)
+  Pure RS-BM             @ 10.0 dB: BER=6.485e-06 FER=2.000e-03 f2m=25298 (1500f 26.2s)
+  Pure RS-BM             @ 10.5 dB: BER=0.000e+00 FER=0.000e+00 f2m=21940 (1500f 26.3s)
+==============================================================================
+Config2 (255): RS(255,239, t=8)/GF(2^8) + BCH(255,239, t=2)/GF(2^8)
+  Cascade(Direct)        @  5.0 dB: BER=3.370e-02 FER=1.000e+00 f2m=11150 (80f 0.4s)
+  Cascade(Direct)        @  5.5 dB: BER=2.709e-02 FER=1.000e+00 f2m=11146 (80f 0.4s)
+  Cascade(Direct)        @  6.0 dB: BER=2.182e-02 FER=1.000e+00 f2m=11147 (80f 0.4s)
+  Cascade(Direct)        @  6.5 dB: BER=1.576e-02 FER=1.000e+00 f2m=11146 (80f 0.4s)
+  Cascade(Direct)        @  7.0 dB: BER=1.025e-02 FER=9.750e-01 f2m=11143 (80f 0.4s)
+  Cascade(Direct)        @  7.5 dB: BER=3.590e-03 FER=4.938e-01 f2m=10709 (81f 0.4s)
+  Cascade(Direct)        @  8.0 dB: BER=8.977e-04 FER=1.533e-01 f2m=10044 (261f 1.2s)
+  Cascade(Direct)        @  8.5 dB: BER=1.540e-04 FER=2.740e-02 f2m=9283 (1460f 6.3s)
+  Cascade(Direct)        @  9.0 dB: BER=5.579e-06 FER=1.333e-03 f2m=8885 (1500f 6.2s)
+  Cascade(Direct)        @  9.5 dB: BER=0.000e+00 FER=0.000e+00 f2m=8713 (1500f 6.1s)
+  Pure RS-BM             @  5.0 dB: BER=3.764e-02 FER=1.000e+00 f2m=6513 (80f 0.3s)
+  Pure RS-BM             @  5.5 dB: BER=3.024e-02 FER=1.000e+00 f2m=6518 (80f 0.3s)
+  Pure RS-BM             @  6.0 dB: BER=2.485e-02 FER=1.000e+00 f2m=6523 (80f 0.3s)
+  Pure RS-BM             @  6.5 dB: BER=1.931e-02 FER=1.000e+00 f2m=6523 (80f 0.3s)
+  Pure RS-BM             @  7.0 dB: BER=1.463e-02 FER=1.000e+00 f2m=6525 (80f 0.3s)
+  Pure RS-BM             @  7.5 dB: BER=1.027e-02 FER=1.000e+00 f2m=6519 (80f 0.3s)
+  Pure RS-BM             @  8.0 dB: BER=7.250e-03 FER=9.875e-01 f2m=6522 (80f 0.3s)
+  Pure RS-BM             @  8.5 dB: BER=4.053e-03 FER=6.875e-01 f2m=6432 (80f 0.3s)
+  Pure RS-BM             @  9.0 dB: BER=1.549e-03 FER=3.101e-01 f2m=6175 (129f 0.5s)
+  Pure RS-BM             @  9.5 dB: BER=1.602e-04 FER=3.404e-02 f2m=5624 (1175f 4.9s)
+
+==============================================================================
+LATENCY (3 innovations) — clock cycles
+
+### Config1 (KP4)  (Pure RS-BM = 33 cyc, KPI ceiling = 36.3)
+   Cascade Conv (no share)           :  37 cyc   +12.1%  FAIL
+   Cascade Direct (no share)         :  35 cyc    +6.1%  PASS
+   Cascade Direct + Lagrange v1      :  34 cyc    +3.0%  PASS
+   Cascade Direct + Lagrange v2      :  33 cyc    +0.0%  PASS
+
+### Config2 (255)  (Pure RS-BM = 19 cyc, KPI ceiling = 20.9)
+   Cascade Conv (no share)           :  27 cyc   +42.1%  FAIL
+   Cascade Direct (no share)         :  22 cyc   +15.8%  FAIL
+   Cascade Direct + Lagrange v1      :  21 cyc   +10.5%  FAIL
+   Cascade Direct + Lagrange v2      :  20 cyc    +5.3%  PASS
+Saved figures/ber_snr_v3.png/.pdf
+Saved figures/latency_innovations_v3.png/.pdf
+Saved figures/complexity_v3.png/.pdf
+
+Saved data/v3_results.json

@@ -42,7 +42,9 @@ class LatencyModel:
     @staticmethod
     def bch_conv_cycles(t: int, m: int = 8) -> int:
         """BCH Conventional BM + Chien for binary BCH."""
-        if t == 2:
+        if t == 1:
+            return 4  # syndrome(1) + trivial ELP(1) + Chien(1) + correct(1)
+        elif t == 2:
             return 8
         elif t == 3:
             return 8
@@ -54,12 +56,14 @@ class LatencyModel:
     def bch_direct_cycles(t: int, m: int = 8) -> int:
         """BCH Direct root finding.
 
-        For n=256 (GF(2^8)) the paper reports 3 cycles.
-        For n=127 (GF(2^7)) the smaller LUT (128 vs 256 entries) has shallower
-        combinational depth; precompute + LUT lookup can be merged into 1 cycle,
-        yielding 2 cycles total (§6.3 Multi-cycle refinement).
+        t=1: single error, no LUT/quadratic. The locator is p = log_alpha(S_1),
+             so syndrome(1) + log-lookup & correct(1) = 2 cycles.
+        t=2, n=256 (GF(2^8)): paper reports 3 cycles.
+        t=2, n<=127 (GF(2^7)): smaller LUT → 2 cycles (§6.3 refinement).
         """
-        if t == 2:
+        if t == 1:
+            return 2  # syndrome + (log-lookup + correction)
+        elif t == 2:
             if m <= 7:
                 return 2  # optimized for GF(2^7) or smaller
             else:
