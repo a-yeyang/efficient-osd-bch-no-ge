@@ -1,4 +1,4 @@
-function main(fast)
+function main(fast, useParallel)
 %MAIN  One-click RS+BCH low-latency cascade simulation (MATLAB).
 %
 %   低时延级联码算法仿真 —— MATLAB 实现（对应 Python 版 rs_bch_cascade/）。
@@ -19,12 +19,22 @@ function main(fast)
 %     Console: per-SNR BER/FER, per-group latency (us) + theoretical F2^m ops,
 %              and the "RS+BCH vs pure-RS latency increase <= 10%" KPI verdict.
 %
+%   PARALLEL: frames are independent Monte-Carlo trials, so the whole sweep is
+%   parallelized at the frame level via parfor (Parallel Computing Toolbox).
+%   A single Processes parpool is started once and reused across all 8 groups.
+%   Each frame draws from its own mrg32k3a substream keyed by the global frame
+%   index -> results are reproducible regardless of worker count / scheduling.
+%
 %   Usage:
-%     main         % FAST preset ON (default) — a few minutes
-%     main(true)   % FAST preset ON
-%     main(false)  % full precision (slower)
+%     main               % FAST preset ON, parallel ON if PCT available
+%     main(true)         % FAST preset ON
+%     main(false)        % full precision (slower)
+%     main(true, false)  % FAST but FORCE serial (for speedup comparison)
 
     if nargin < 1, fast = true; end
+    if nargin < 2 || isempty(useParallel)
+        useParallel = hasParallel();
+    end
 
     % Make sure this file's folder is on the path (so classes resolve).
     here = fileparts(mfilename('fullpath'));
@@ -41,6 +51,21 @@ function main(fast)
         fprintf('#   预设: FAST (数分钟). 关闭用 main(false) 跑完整精度.\n');
     else
         fprintf('#   预设: FULL 精度 (较慢).\n');
+    end
+
+    % ---- parallel pool (start once, reuse across all 8 groups) ----
+    ncores = feature('numcores');
+    if useParallel
+        nworkers = start_parpool(ncores);
+        if nworkers < 1
+            useParallel = false;   % pool failed to start -> fall back to serial
+        end
+    end
+    if useParallel
+        fprintf('#   并行: 开 (parfor, %d worker / %d 核; 帧级 mrg32k3a 子流, 可复现)\n', ...
+            nworkers, ncores);
+    else
+        fprintf('#   并行: 关 (串行; %d 核可用)\n', ncores);
     end
     fprintf('############################################################\n\n');
 
@@ -68,6 +93,7 @@ function main(fast)
     cfg_names = {'n127', 'n255'};
     ebn0_lists = {ebn0_127, ebn0_255};
 
+    t_all = tic;
     for ci = 1:numel(cfg_names)
         name = cfg_names{ci};
         cfg = cfgs.(name);
@@ -94,7 +120,7 @@ function main(fast)
             frames = methods{mi, 6};
             fprintf('\n--- %s / %s ---\n', name, label);
             opts = struct('seed', 0, 'min_frame_errors', 15, ...
-                'max_frames', frames, 'verbose', true);
+                'max_frames', frames, 'verbose', true, 'parallel', useParallel);
             res = run_bench(label, enc, dec, rate, ebn0_list, ...
                 cfg.k_rs, cfg.m, opts);
             results_by_method.(key) = res;
@@ -109,9 +135,44 @@ function main(fast)
     plotLatencyKpi(all_results.n255, here);
     printKpiTable(all_results);
 
+    total_wall = toc(t_all);
+
     save(fullfile(here, 'data', 'matlab_results.mat'), 'all_results');
     fprintf('\n已保存: data/matlab_results.mat, figures/matlab_n127_ber.*, ');
     fprintf('figures/matlab_n255_ber.*, figures/matlab_latency_bars.*\n');
+    if useParallel
+        fprintf('总墙钟(并行, %d worker): %.1f s   —— 关并行对比: main(%s, false)\n', ...
+            nworkers, total_wall, mat2str(fast));
+    else
+        fprintf('总墙钟(串行): %.1f s   —— 开并行对比: main(%s, true)\n', ...
+            total_wall, mat2str(fast));
+    end
+end
+
+
+% ======================================================================
+function tf = hasParallel()
+    % True if the Parallel Computing Toolbox is installed AND licensed.
+    tf = ~isempty(ver('parallel')) && license('test', 'Distrib_Computing_Toolbox');
+end
+
+
+% ======================================================================
+function nworkers = start_parpool(ncores)
+    % Start (or reuse) a Processes parpool. Returns worker count, 0 on failure.
+    nworkers = 0;
+    try
+        pool = gcp('nocreate');
+        if isempty(pool)
+            % Leave a little headroom; cap at 12 (M4 Pro).
+            n = min(12, max(1, ncores));
+            pool = parpool('Processes', n);
+        end
+        nworkers = pool.NumWorkers;
+    catch ME
+        fprintf('#   [警告] parpool 启动失败, 回退串行: %s\n', ME.message);
+        nworkers = 0;
+    end
 end
 
 

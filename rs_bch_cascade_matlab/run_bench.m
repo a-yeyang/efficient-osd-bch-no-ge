@@ -16,43 +16,105 @@ function res = run_bench(method_name, encoder, decoder, rate, ebn0_list, ...
     if ~isfield(opts, 'min_frame_errors'), opts.min_frame_errors = 15; end
     if ~isfield(opts, 'max_frames'),       opts.max_frames = 200;     end
     if ~isfield(opts, 'verbose'),          opts.verbose = true;       end
+    if ~isfield(opts, 'parallel'),         opts.parallel = false;     end
 
     res = struct('ebn0_db', [], 'ser', [], 'ber', [], 'fer', [], ...
         'n_frames', [], 'n_frame_errors', [], 'avg_f2m_ops', [], ...
         'avg_f2_ops', [], 'avg_latency_us', []);
 
+    % Batch size for parallel mode: 2x workers keeps cores busy while still
+    % checking the early-stop condition between batches (preserves the serial
+    % ">=15 frame errors && >=100 frames -> stop" semantics).
+    if opts.parallel
+        pool = gcp('nocreate');
+        if isempty(pool), n_workers = 4; else, n_workers = pool.NumWorkers; end
+        batch = max(1, 2 * n_workers);
+    end
+
     for ei = 1:numel(ebn0_list)
         ebn0 = ebn0_list(ei);
-        rng = RandStream('mt19937ar', 'Seed', opts.seed + round(ebn0 * 100));
         n_frames = 0; n_frame_errors = 0; n_bit_errors = 0; n_symbol_errors = 0;
         sum_f2m = 0; sum_f2 = 0; sum_lat = 0;
         t_start = tic;
 
-        while n_frames < opts.max_frames
-            msg = double(randi(rng, [0, bitshift(1, m_bits) - 1], 1, n_info_symbols));
-            coded = encoder(msg);
-            llr = pam4.runChannel(coded, ebn0, rate, rng);
+        if opts.parallel
+            % ---- parallel frame loop (batched parfor) ----
+            % Each frame owns an independent mrg32k3a substream keyed by its
+            % GLOBAL frame index -> results are identical regardless of worker
+            % count or scheduling order (reproducible).
+            base_seed = opts.seed + round(ebn0 * 100);
+            while n_frames < opts.max_frames
+                nb = min(batch, opts.max_frames - n_frames);
+                b_sym_err   = zeros(1, nb);
+                b_bit_err   = zeros(1, nb);
+                b_frame_err = zeros(1, nb);
+                b_f2m       = zeros(1, nb);
+                b_f2        = zeros(1, nb);
+                b_lat       = zeros(1, nb);
+                base_frame  = n_frames;
+                parfor j = 1:nb
+                    fi = base_frame + j;                       % global frame index
+                    s = RandStream('mrg32k3a', 'Seed', base_seed);
+                    s.Substream = fi;
+                    msg = double(randi(s, [0, bitshift(1, m_bits) - 1], 1, n_info_symbols));
+                    coded = encoder(msg);
+                    llr = pam4.runChannel(coded, ebn0, rate, s);
 
-            counters = OpCounters();
-            t_dec = tic;
-            msg_hat = decoder(llr, counters);
-            dec_us = toc(t_dec) * 1e6;
+                    counters = OpCounters();
+                    t_dec = tic;
+                    msg_hat = decoder(llr, counters);
+                    b_lat(j) = toc(t_dec) * 1e6;
 
-            n_frames = n_frames + 1;
-            n_sym_err = sum(msg_hat(:).' ~= msg(:).');
-            if n_sym_err > 0, n_frame_errors = n_frame_errors + 1; end
-            n_symbol_errors = n_symbol_errors + n_sym_err;
+                    nse = sum(msg_hat(:).' ~= msg(:).');
+                    b_sym_err(j)   = nse;
+                    b_frame_err(j) = double(nse > 0);
+                    mb  = symbolsToBits(msg, m_bits);
+                    mhb = symbolsToBits(msg_hat, m_bits);
+                    b_bit_err(j) = sum(mb ~= mhb);
+                    b_f2m(j) = counters.f2m;
+                    b_f2(j)  = counters.f2;
+                end
+                n_frames        = n_frames + nb;
+                n_symbol_errors = n_symbol_errors + sum(b_sym_err);
+                n_frame_errors  = n_frame_errors  + sum(b_frame_err);
+                n_bit_errors    = n_bit_errors    + sum(b_bit_err);
+                sum_f2m = sum_f2m + sum(b_f2m);
+                sum_f2  = sum_f2  + sum(b_f2);
+                sum_lat = sum_lat + sum(b_lat);
 
-            msg_bits = symbolsToBits(msg, m_bits);
-            msg_hat_bits = symbolsToBits(msg_hat, m_bits);
-            n_bit_errors = n_bit_errors + sum(msg_bits ~= msg_hat_bits);
+                if n_frame_errors >= opts.min_frame_errors && n_frames >= 100
+                    break;
+                end
+            end
+        else
+            % ---- serial frame loop (original, unchanged) ----
+            rng = RandStream('mt19937ar', 'Seed', opts.seed + round(ebn0 * 100));
+            while n_frames < opts.max_frames
+                msg = double(randi(rng, [0, bitshift(1, m_bits) - 1], 1, n_info_symbols));
+                coded = encoder(msg);
+                llr = pam4.runChannel(coded, ebn0, rate, rng);
 
-            sum_f2m = sum_f2m + counters.f2m;
-            sum_f2  = sum_f2  + counters.f2;
-            sum_lat = sum_lat + dec_us;
+                counters = OpCounters();
+                t_dec = tic;
+                msg_hat = decoder(llr, counters);
+                dec_us = toc(t_dec) * 1e6;
 
-            if n_frame_errors >= opts.min_frame_errors && n_frames >= 100
-                break;
+                n_frames = n_frames + 1;
+                n_sym_err = sum(msg_hat(:).' ~= msg(:).');
+                if n_sym_err > 0, n_frame_errors = n_frame_errors + 1; end
+                n_symbol_errors = n_symbol_errors + n_sym_err;
+
+                msg_bits = symbolsToBits(msg, m_bits);
+                msg_hat_bits = symbolsToBits(msg_hat, m_bits);
+                n_bit_errors = n_bit_errors + sum(msg_bits ~= msg_hat_bits);
+
+                sum_f2m = sum_f2m + counters.f2m;
+                sum_f2  = sum_f2  + counters.f2;
+                sum_lat = sum_lat + dec_us;
+
+                if n_frame_errors >= opts.min_frame_errors && n_frames >= 100
+                    break;
+                end
             end
         end
 
