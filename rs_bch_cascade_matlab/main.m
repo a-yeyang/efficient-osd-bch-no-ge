@@ -135,11 +135,17 @@ function main(fast, useParallel)
     plotLatencyKpi(all_results.n255, here);
     printKpiTable(all_results);
 
+    % ---- P-lane parallel-hardware KPI (clock-cycle ~ total ops / P) ----
+    % Projects the P=1 op-count increase onto P pivot-free LLOSD lanes; shows a
+    % modest P (2 for n=255, 3 for n=127) drops the cascade increase below +10%.
+    plot_parallel_kpi(all_results, here);
+
     total_wall = toc(t_all);
 
     save(fullfile(here, 'data', 'matlab_results.mat'), 'all_results');
     fprintf('\n已保存: data/matlab_results.mat, figures/matlab_n127_ber.*, ');
-    fprintf('figures/matlab_n255_ber.*, figures/matlab_latency_bars.*\n');
+    fprintf('figures/matlab_n255_ber.*, figures/matlab_latency_bars.*, ');
+    fprintf('figures/matlab_parallel_kpi.*\n');
     if useParallel
         fprintf('总墙钟(并行, %d worker): %.1f s   —— 关并行对比: main(%s, false)\n', ...
             nworkers, total_wall, mat2str(fast));
