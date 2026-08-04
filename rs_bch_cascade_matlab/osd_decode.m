@@ -88,7 +88,7 @@ function [c_hat, info] = osd_decode(code, L, tau, counters)
     c_hat(perm_eff) = best_c_perm;
     counters.latency_us = toc(t0) * 1e6;
     info = struct('counters', counters, 'n_teps', n_teps, ...
-        'n_bch_candidates', n_teps);
+        'n_bch_candidates', n_teps, 'terminated_early', terminated_early);
 end
 
 

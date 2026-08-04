@@ -1,0 +1,214 @@
+<mxfile host="Electron" agent="Claude">
+  <diagram id="fig2" name="端到端链路">
+    <mxGraphModel dx="2236" dy="1342" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=23;fontStyle=1;fontColor=#015C31;" value="RS + BCH 级联码端到端硬判决收发链路" vertex="1">
+          <mxGeometry height="40" width="1800" x="3" y="48" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=16;fontColor=#5C6670;" value="发端：编码 → 矩阵交织 → PAM4 调制    信道：AWGN + 一阶 DFE 突发    收端：PAM4 解调 → BCH 译码 → 解交织 → RS 译码" vertex="1">
+          <mxGeometry height="26" width="1800" y="97" as="geometry" />
+        </mxCell>
+        <mxCell id="txlabel" parent="1" style="text;html=1;fillColor=none;strokeColor=none;align=left;fontSize=14;fontColor=#015C31;fontStyle=1;spacingLeft=4;" value="发端 (TX)" vertex="1">
+          <mxGeometry height="28" width="120" x="80" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="tx1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2F3F4;strokeColor=#5C6670;strokeWidth=2;fontSize=14;fontStyle=1;arcSize=8;" value="信息比特&#xa;u ∈ {0,1}^K" vertex="1">
+          <mxGeometry height="90" width="180" x="80" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="tx2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCF0E1;strokeColor=#015C31;strokeWidth=2.5;fontSize=14;fontStyle=1;arcSize=8;" value="外码 RS 编码&#xa;RS(n, k, t)&#xa;&#xa;符号级 · 抗突发" vertex="1">
+          <mxGeometry height="90" width="180" x="290" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="tx3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF8F0;strokeColor=#14AE68;strokeWidth=2;fontSize=14;arcSize=8;dashed=1;" value="矩阵交织&#xa;三步：Step1/2/3&#xa;&#xa;列宽 w ∈ {1bit,&#xa;2bits, 1sym}" vertex="1">
+          <mxGeometry height="90" width="200" x="500" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="tx4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCF0E1;strokeColor=#009A44;strokeWidth=2.5;fontSize=14;fontStyle=1;arcSize=8;" value="内码 BCH 编码&#xa;BCH(n_b, k_b, t_b)&#xa;&#xa;比特级 · 纠随机错" vertex="1">
+          <mxGeometry height="90" width="200" x="730" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="tx5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5FBF7;strokeColor=#89C997;strokeWidth=2;fontSize=14;arcSize=8;" value="PAM4 调制&#xa;Gray 映射&#xa;&#xa;2 bit → 4 电平" vertex="1">
+          <mxGeometry height="90" width="180" x="960" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="tx6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2F3F4;strokeColor=#5C6670;strokeWidth=2;fontSize=14;fontStyle=1;arcSize=8;" value="发送信号&#xa;x[n] ∈ {±1, ±3}" vertex="1">
+          <mxGeometry height="90" width="160" x="1170" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="txa1" edge="1" parent="1" style="endArrow=classic;html=1;strokeWidth=2.2;strokeColor=#5C6670;endFill=1;endSize=6;fontSize=14;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="215" as="sourcePoint" />
+            <mxPoint x="290" y="215" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="txa2" edge="1" parent="1" style="endArrow=classic;html=1;strokeWidth=2.2;strokeColor=#5C6670;endFill=1;endSize=6;fontSize=14;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="470" y="215" as="sourcePoint" />
+            <mxPoint x="500" y="215" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="txa3" edge="1" parent="1" style="endArrow=classic;html=1;strokeWidth=2.2;strokeColor=#5C6670;endFill=1;endSize=6;fontSize=14;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="700" y="215" as="sourcePoint" />
+            <mxPoint x="730" y="215" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="txa4" edge="1" parent="1" style="endArrow=classic;html=1;strokeWidth=2.2;strokeColor=#5C6670;endFill=1;endSize=6;fontSize=14;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="930" y="215" as="sourcePoint" />
+            <mxPoint x="960" y="215" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="txa5" edge="1" parent="1" style="endArrow=classic;html=1;strokeWidth=2.2;strokeColor=#5C6670;endFill=1;endSize=6;fontSize=14;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1140" y="215" as="sourcePoint" />
+            <mxPoint x="1170" y="215" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tx3_note" parent="1" style="text;html=1;fillColor=none;strokeColor=none;align=center;fontSize=14;fontColor=#14AE68;fontStyle=2;" value="可选（抗突发）" vertex="1">
+          <mxGeometry height="18" width="200" x="500" y="262" as="geometry" />
+        </mxCell>
+        <mxCell id="chnlabel" parent="1" style="text;html=1;fillColor=none;strokeColor=none;align=left;fontSize=14;fontColor=#A23E0A;fontStyle=1;spacingLeft=4;" value="信道 (Channel)" vertex="1">
+          <mxGeometry height="28" width="200" x="80" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="ch_box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FBEEE6;strokeColor=#A23E0A;strokeWidth=2.5;arcSize=6;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="230" width="520" x="640" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="ch_title" parent="1" style="text;html=1;fillColor=none;strokeColor=none;align=center;fontSize=14;fontStyle=1;fontColor=#A23E0A;" value="PAM4 + AWGN  ⊕  一阶 DFE 突发传播 (可选)" vertex="1">
+          <mxGeometry height="24" width="520" x="640" y="368" as="geometry" />
+        </mxCell>
+        <mxCell id="ch_awgn" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A23E0A;strokeWidth=1.75;fontSize=14;fontStyle=0;arcSize=6;align=left;spacingLeft=12;spacingTop=6;" value="AWGN 加噪&#xa;y[n] = x[n] + w[n]&#xa;w ~ 𝒩(0, σ²)&#xa;&#xa;硬判决判到最近电平&#xa;→ 独立比特错" vertex="1">
+          <mxGeometry height="160" width="230" x="660" y="405" as="geometry" />
+        </mxCell>
+        <mxCell id="ch_burst" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A23E0A;strokeWidth=1.75;fontSize=14;fontStyle=0;arcSize=6;align=left;spacingLeft=12;spacingTop=6;dashed=1;" value="DFE 误差传播&#xa;&#xa;当前符号判错时&#xa;下一符号以概率 p 判错&#xa;（Gray 单比特翻转）&#xa;&#xa;游程 ≈ 1/(1 − p)&#xa;p ∈ {0, 0.3, 0.5, 0.75}" vertex="1">
+          <mxGeometry height="160" width="230" x="910" y="405" as="geometry" />
+        </mxCell>
+        <mxCell id="txch" edge="1" parent="1" source="tx6" style="endArrow=classic;html=1;strokeWidth=2.5;strokeColor=#A23E0A;endFill=1;endSize=7;fontSize=14;exitX=0.5;exitY=1;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1246.77" y="260.38" as="sourcePoint" />
+            <mxPoint x="1254.46" y="475.87" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="txch_lbl" parent="1" style="text;html=1;fillColor=#FFFFFF;strokeColor=none;fontSize=14;fontColor=#A23E0A;fontStyle=1;" value="x[n]" vertex="1">
+          <mxGeometry height="20" width="34" x="1258" y="298" as="geometry" />
+        </mxCell>
+        <mxCell id="rxlabel" parent="1" style="text;html=1;fillColor=none;strokeColor=none;align=right;fontSize=14;fontColor=#015C31;fontStyle=1;spacingRight=4;" value="收端 (RX)" vertex="1">
+          <mxGeometry height="28" width="140" x="1580" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="rx1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5FBF7;strokeColor=#89C997;strokeWidth=2;fontSize=14;arcSize=8;" value="PAM4 解调&#xa;（硬判决）&#xa;&#xa;判到最近电平&#xa;→ Gray 逆映射" vertex="1">
+          <mxGeometry height="100" width="190" x="1490" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="rx2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCF0E1;strokeColor=#009A44;strokeWidth=2.5;fontSize=14;fontStyle=1;arcSize=8;" value="内码 BCH 译码&#xa;BCH-Conv 或 BCH-Direct&#xa;&#xa;比特级纠 ≤ t_b 错" vertex="1">
+          <mxGeometry height="100" width="230" x="1220" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="rx3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF8F0;strokeColor=#14AE68;strokeWidth=2;fontSize=14;arcSize=8;dashed=1;" value="矩阵解交织&#xa;逆置换&#xa;&#xa;残余错误分散&#xa;到多个 RS 码字" vertex="1">
+          <mxGeometry height="100" width="200" x="990" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="rx4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2F3F4;strokeColor=#5C6670;strokeWidth=2;fontSize=14;arcSize=8;" value="比特 → 符号&#xa;反串行化&#xa;&#xa;m 比特 → 1 个&#xa;GF(2ᵐ) 符号" vertex="1">
+          <mxGeometry height="100" width="180" x="770" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="rx5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCF0E1;strokeColor=#015C31;strokeWidth=2.5;fontSize=14;fontStyle=1;arcSize=8;" value="外码 RS 译码&#xa;RS-BM + Chien + Forney&#xa;&#xa;符号级纠 ≤ t 错" vertex="1">
+          <mxGeometry height="100" width="220" x="510" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="rx6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2F3F4;strokeColor=#5C6670;strokeWidth=2;fontSize=14;fontStyle=1;arcSize=8;" value="信息比特&#xa;û ∈ {0,1}^K" vertex="1">
+          <mxGeometry height="80" width="180" x="290" y="655" as="geometry" />
+        </mxCell>
+        <mxCell id="rxa1" edge="1" parent="1" style="endArrow=classic;html=1;strokeWidth=2.2;strokeColor=#5C6670;endFill=1;endSize=6;fontSize=14;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1490" y="690" as="sourcePoint" />
+            <mxPoint x="1450" y="690" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rxa2" edge="1" parent="1" style="endArrow=classic;html=1;strokeWidth=2.2;strokeColor=#5C6670;endFill=1;endSize=6;fontSize=14;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1220" y="690" as="sourcePoint" />
+            <mxPoint x="1190" y="690" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rxa3" edge="1" parent="1" style="endArrow=classic;html=1;strokeWidth=2.2;strokeColor=#5C6670;endFill=1;endSize=6;fontSize=14;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="990" y="690" as="sourcePoint" />
+            <mxPoint x="950" y="690" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rxa4" edge="1" parent="1" style="endArrow=classic;html=1;strokeWidth=2.2;strokeColor=#5C6670;endFill=1;endSize=6;fontSize=14;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="770" y="690" as="sourcePoint" />
+            <mxPoint x="730" y="690" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rxa5" edge="1" parent="1" style="endArrow=classic;html=1;strokeWidth=2.2;strokeColor=#5C6670;endFill=1;endSize=6;fontSize=14;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="510" y="690" as="sourcePoint" />
+            <mxPoint x="470" y="690" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="chrx" edge="1" parent="1" style="endArrow=classic;html=1;strokeWidth=2.5;strokeColor=#A23E0A;endFill=1;endSize=7;fontSize=14;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1585" y="590" as="sourcePoint" />
+            <mxPoint x="1585" y="640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="chrx2" edge="1" parent="1" style="endArrow=none;html=1;strokeWidth=2.5;strokeColor=#A23E0A;fontSize=14;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1160" y="475" as="sourcePoint" />
+            <mxPoint x="1585" y="475" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="chrx3" edge="1" parent="1" style="endArrow=none;html=1;strokeWidth=2.5;strokeColor=#A23E0A;fontSize=14;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1585" y="475" as="sourcePoint" />
+            <mxPoint x="1585" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="chrx_lbl" parent="1" style="text;html=1;fillColor=#FFFFFF;strokeColor=none;fontSize=14;fontColor=#A23E0A;fontStyle=1;" value="ŷ[n]（含噪 / 突发）" vertex="1">
+          <mxGeometry height="20" width="150" x="1420" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="lgd_title" parent="1" style="text;html=1;fillColor=none;strokeColor=none;align=left;fontSize=14;fontColor=#015C31;fontStyle=1;" value="纠错分工" vertex="1">
+          <mxGeometry height="24" width="200" x="80" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="lgd_box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF8F0;strokeColor=#14AE68;strokeWidth=1.5;fontSize=14;align=left;spacingLeft=12;spacingTop=8;arcSize=6;" value="内码 BCH（比特级）&#xa;• 每块纠 ≤ t_b 个随机比特错&#xa;• 降低进入外码 RS 的符号错率&#xa;&#xa;外码 RS（符号级）&#xa;• 兜底残余符号错误&#xa;• 纠 ≤ t 个符号错，抗突发&#xa;&#xa;交织（突发信道）&#xa;• 把突发打散到多个 BCH 码字&#xa;• w = 1 bit 每块 ≤ 1 错" vertex="1">
+          <mxGeometry height="200" width="500" x="80" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="result_title" parent="1" style="text;html=1;fillColor=none;strokeColor=none;align=left;fontSize=14;fontStyle=1;fontColor=#015C31;" value="性能结论（BER = 10⁻⁴）" vertex="1">
+          <mxGeometry height="24" width="500" x="80" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="res_c1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF8F0;strokeColor=#009A44;strokeWidth=2;fontSize=14;align=left;spacingLeft=12;spacingTop=8;arcSize=6;fontStyle=1;fontColor=#015C31;" value="Config 1 (KP4)&#xa;&#xa;级联 ≈ 8.9 dB，纯 RS ≈ 9.7 dB&#xa;→ 约 0.7 dB 编码增益" vertex="1">
+          <mxGeometry height="110" width="360" x="80" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="res_c2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF8F0;strokeColor=#009A44;strokeWidth=2;fontSize=14;align=left;spacingLeft=12;spacingTop=8;arcSize=6;fontStyle=1;fontColor=#015C31;" value="Config 2 (n = 255)&#xa;&#xa;级联 ≈ 8.6 dB，纯 RS ≈ 9.6 dB&#xa;→ 约 1.0 dB 编码增益" vertex="1">
+          <mxGeometry height="110" width="360" x="460" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="res_v4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FBEEE6;strokeColor=#A23E0A;strokeWidth=2;fontSize=14;align=left;spacingLeft=12;spacingTop=8;arcSize=6;fontStyle=1;fontColor=#A23E0A;" value="突发信道 p = 0.75&#xa;&#xa;矩阵交织所提 vs. existing 符号交织&#xa;→ 约 0.34 dB 额外增益（BER=10⁻⁴）" vertex="1">
+          <mxGeometry height="110" width="380" x="840" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="res_lat" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFBEE;strokeColor=#C08A00;strokeWidth=2;fontSize=14;align=left;spacingLeft=12;spacingTop=8;arcSize=6;fontStyle=1;fontColor=#7A5B00;" value="时延 KPI (≤ 10%)&#xa;&#xa;Config 1：Direct + 二级共享 → +0.0%（PASS）&#xa;Config 2：Direct + 二级共享 → +5.3%（PASS）" vertex="1">
+          <mxGeometry height="110" width="380" x="1240" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="cl_title" parent="1" style="text;html=1;fillColor=none;strokeColor=none;align=left;fontSize=14;fontStyle=1;fontColor=#5C6670;" value="图例" vertex="1">
+          <mxGeometry height="22" width="120" x="1350" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="cl1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCF0E1;strokeColor=#015C31;strokeWidth=2;arcSize=8;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="20" width="30" x="1350" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="cl1t" parent="1" style="text;html=1;fillColor=none;strokeColor=none;align=left;fontSize=14;fontColor=#1A1A1A;" value="RS / BCH 编解码" vertex="1">
+          <mxGeometry height="20" width="200" x="1388" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="cl2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF8F0;strokeColor=#14AE68;strokeWidth=2;arcSize=8;dashed=1;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="20" width="30" x="1350" y="178" as="geometry" />
+        </mxCell>
+        <mxCell id="cl2t" parent="1" style="text;html=1;fillColor=none;strokeColor=none;align=left;fontSize=14;fontColor=#1A1A1A;" value="交织（可选）" vertex="1">
+          <mxGeometry height="20" width="200" x="1388" y="178" as="geometry" />
+        </mxCell>
+        <mxCell id="cl3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FBEEE6;strokeColor=#A23E0A;strokeWidth=2;arcSize=8;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="20" width="30" x="1350" y="206" as="geometry" />
+        </mxCell>
+        <mxCell id="cl3t" parent="1" style="text;html=1;fillColor=none;strokeColor=none;align=left;fontSize=14;fontColor=#1A1A1A;" value="信道 / 突发错误" vertex="1">
+          <mxGeometry height="20" width="200" x="1388" y="206" as="geometry" />
+        </mxCell>
+        <mxCell id="cl4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2F3F4;strokeColor=#5C6670;strokeWidth=2;arcSize=8;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="20" width="30" x="1350" y="234" as="geometry" />
+        </mxCell>
+        <mxCell id="cl4t" parent="1" style="text;html=1;fillColor=none;strokeColor=none;align=left;fontSize=14;fontColor=#1A1A1A;" value="信号 / 中间数据" vertex="1">
+          <mxGeometry height="20" width="200" x="1388" y="234" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

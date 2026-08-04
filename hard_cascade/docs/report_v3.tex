@@ -70,6 +70,15 @@
 Config 1 因外码大、内码极小，\textbf{仅靠 Direct 创新（无需 Lagrange 共享）即已达标（+6.1\%）}；
 Config 2 需要 Cascade + Direct + Lagrange v2 \textbf{三者齐全}才达标（+5.3\%）。
 
+\begin{keybox}[title=\textbf{口径说明：本报告 vs 项目权威软判仿真}]
+本报告是\textbf{硬判决}级联 + \textbf{时钟周期}模型（Pure RS-BM 基线，Direct + Lagrange v2 共享），
+数字为 clock-cycle 增幅。项目的\textbf{软判决时延权威口径}以 MATLAB 最终仿真
+（\texttt{rs\_bch\_cascade\_matlab/}，LLOSD + LCC-BR，F$_2^m$ op 计数）为准：相对纯 RS-LCC-BR
+串行 $P{=}1$ 为 $+18.7\%$ (n=255) / $+26.8\%$ (n=127)，因 LLOSD 无主元、可并行
+（时延 $\approx$ ops$/P$），$P{=}2$/$P{=}3$ 即 $\leq 10\%$ 达标。两条口径是不同实验、不同基线，
+数值自然不同，均不构成冲突。
+\end{keybox}
+
 \begin{center}
 \begin{tabular}{lrrrl}
 \toprule

@@ -1,0 +1,145 @@
+<mxfile host="Electron" agent="Claude">
+  <diagram id="fig1" name="RS+BCH码构造">
+    <mxGraphModel dx="1677" dy="1007" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#015C31;" value="RS + BCH 级联码构造流程" vertex="1">
+          <mxGeometry height="40" width="293" x="687" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=14;fontColor=#5C6670;" value="外码 RS（符号级、抗突发）  ⊕  内码 BCH（比特级、纠随机错）" vertex="1">
+          <mxGeometry height="30" width="447" x="586" y="87" as="geometry" />
+        </mxCell>
+        <mxCell id="chain_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontSize=14;fontStyle=1;fontColor=#015C31;" value="① 编码总链路（自左向右）" vertex="1">
+          <mxGeometry height="30" width="500" x="80" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="s1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2F3F4;strokeColor=#5C6670;strokeWidth=2;fontSize=14;fontStyle=1;arcSize=8;" value="信息符号&#xa;k 个 GF(2ᵐ) 符号" vertex="1">
+          <mxGeometry height="80" width="180" x="80" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="s2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCF0E1;strokeColor=#015C31;strokeWidth=2.5;fontSize=14;fontStyle=1;arcSize=8;align=left;spacingLeft=10;spacingTop=6;" value="外码 RS(n, k, t) 编码&#xa;&#xa;• 符号级 Reed-Solomon&#xa;• 添加 n − k 个校验符号&#xa;• 纠 ≤ t 个符号错&#xa;• 抗突发能力强" vertex="1">
+          <mxGeometry height="120" width="230" x="310" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="s3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2F3F4;strokeColor=#5C6670;strokeWidth=2;fontSize=14;arcSize=8;" value="符号 → 比特&#xa;串行化&#xa;&#xa;n 个 GF(2ᵐ) 符号&#xa;→ n × m 比特" vertex="1">
+          <mxGeometry height="120" width="170" x="590" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="s4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2F3F4;strokeColor=#5C6670;strokeWidth=2;fontSize=14;arcSize=8;" value="分块&#xa;&#xa;按内码信息长度 k_BCH&#xa;把比特流切成 N_blk 块" vertex="1">
+          <mxGeometry height="120" width="170" x="810" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="s5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCF0E1;strokeColor=#009A44;strokeWidth=2.5;fontSize=14;fontStyle=1;arcSize=8;align=left;spacingLeft=10;spacingTop=6;" value="内码 BCH(n_b, k_b, t_b) 编码&#xa;&#xa;• 比特级 BCH&#xa;• 每块补 n_b − k_b 校验比特&#xa;• 纠 ≤ t_b 个比特错&#xa;• 纠随机错" vertex="1">
+          <mxGeometry height="120" width="230" x="1030" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="s6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2F3F4;strokeColor=#5C6670;strokeWidth=2;fontSize=14;fontStyle=1;arcSize=8;" value="编码比特&#xa;→ 信道" vertex="1">
+          <mxGeometry height="80" width="180" x="1310" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" edge="1" parent="1" style="endArrow=classic;html=1;strokeWidth=2.2;strokeColor=#5C6670;endFill=1;endSize=6;fontSize=14;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="210" as="sourcePoint" />
+            <mxPoint x="310" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a2" edge="1" parent="1" style="endArrow=classic;html=1;strokeWidth=2.2;strokeColor=#5C6670;endFill=1;endSize=6;fontSize=14;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="540" y="210" as="sourcePoint" />
+            <mxPoint x="590" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a3" edge="1" parent="1" style="endArrow=classic;html=1;strokeWidth=2.2;strokeColor=#5C6670;endFill=1;endSize=6;fontSize=14;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="760" y="210" as="sourcePoint" />
+            <mxPoint x="810" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a4" edge="1" parent="1" style="endArrow=classic;html=1;strokeWidth=2.2;strokeColor=#5C6670;endFill=1;endSize=6;fontSize=14;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="980" y="210" as="sourcePoint" />
+            <mxPoint x="1030" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a5" edge="1" parent="1" style="endArrow=classic;html=1;strokeWidth=2.2;strokeColor=#5C6670;endFill=1;endSize=6;fontSize=14;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1260" y="210" as="sourcePoint" />
+            <mxPoint x="1310" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="band_rs" parent="1" style="text;html=1;fillColor=none;strokeColor=none;align=center;fontSize=14;fontColor=#015C31;fontStyle=1;" value="符号级 · 外码" vertex="1">
+          <mxGeometry height="20" width="230" x="310" y="272" as="geometry" />
+        </mxCell>
+        <mxCell id="band_bch" parent="1" style="text;html=1;fillColor=none;strokeColor=none;align=center;fontSize=14;fontColor=#009A44;fontStyle=1;" value="比特级 · 内码" vertex="1">
+          <mxGeometry height="20" width="230" x="1030" y="272" as="geometry" />
+        </mxCell>
+        <mxCell id="cfg_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontSize=14;fontStyle=1;fontColor=#015C31;" value="② 两组实用码型参数" vertex="1">
+          <mxGeometry height="30" width="500" x="80" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_card" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF8F0;strokeColor=#14AE68;strokeWidth=2;arcSize=6;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="230" width="720" x="80" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_title" parent="1" style="text;html=1;fillColor=none;strokeColor=none;align=left;fontSize=14;fontColor=#015C31;fontStyle=1;spacingLeft=14;spacingTop=6;" value="Config 1 · KP4 以太网 FEC（大外码 + 极小内码）" vertex="1">
+          <mxGeometry height="26" width="720" x="80" y="368" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_rs" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#015C31;strokeWidth=2;fontSize=14;align=left;spacingLeft=12;spacingTop=8;arcSize=6;" value="外码 RS(544, 514, t = 15)&#xa;&#xa;GF(2¹⁰)&#xa;缩短码：full RS(1023, 993) 缩短 479 符号&#xa;码率 R_out = 514/544 ≈ 0.945" vertex="1">
+          <mxGeometry height="120" width="330" x="100" y="405" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_bch" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#009A44;strokeWidth=2;fontSize=14;align=left;spacingLeft=12;spacingTop=8;arcSize=6;" value="内码 BCH(144, 136, t_b = 1)&#xa;&#xa;GF(2⁸)&#xa;缩短码：full BCH(255, 247) 缩短 111 bit&#xa;码率 R_in = 136/144 ≈ 0.944" vertex="1">
+          <mxGeometry height="120" width="330" x="450" y="405" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_bot" parent="1" style="text;html=1;fillColor=none;strokeColor=none;align=center;fontSize=14;fontColor=#1A1A1A;fontStyle=0;spacingTop=4;" value="分块：40 块 × 136 bit（RS 5440 bit 精确整除）    级联码率 = 0.892    RS 与 BCH 域解耦（10 ↔ 8）" vertex="1">
+          <mxGeometry height="40" width="700" x="90" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="c2_card" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF8F0;strokeColor=#14AE68;strokeWidth=2;arcSize=6;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="230" width="700" x="820" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="c2_title" parent="1" style="text;html=1;fillColor=none;strokeColor=none;align=left;fontSize=14;fontColor=#015C31;fontStyle=1;spacingLeft=14;spacingTop=6;" value="Config 2 · n = 255（均衡型）" vertex="1">
+          <mxGeometry height="26" width="700" x="820" y="368" as="geometry" />
+        </mxCell>
+        <mxCell id="c2_rs" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#015C31;strokeWidth=2;fontSize=14;align=left;spacingLeft=12;spacingTop=8;arcSize=6;" value="外码 RS(255, 239, t = 8)&#xa;&#xa;GF(2⁸)&#xa;本原码（n = 2⁸ − 1）&#xa;码率 R_out = 239/255 ≈ 0.937" vertex="1">
+          <mxGeometry height="120" width="320" x="840" y="405" as="geometry" />
+        </mxCell>
+        <mxCell id="c2_bch" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#009A44;strokeWidth=2;fontSize=14;align=left;spacingLeft=12;spacingTop=8;arcSize=6;" value="内码 BCH(255, 239, t_b = 2)&#xa;&#xa;GF(2⁸)&#xa;本原码&#xa;码率 R_in = 239/255 ≈ 0.937" vertex="1">
+          <mxGeometry height="120" width="320" x="1180" y="405" as="geometry" />
+        </mxCell>
+        <mxCell id="c2_bot" parent="1" style="text;html=1;fillColor=none;strokeColor=none;align=center;fontSize=14;fontColor=#1A1A1A;fontStyle=0;spacingTop=4;" value="分块：9 块（RS 2040 bit + 111 bit padding）    级联码率 = 0.833    RS 与 BCH 同域 GF(2⁸)" vertex="1">
+          <mxGeometry height="40" width="680" x="830" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="sc_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontSize=14;fontStyle=1;fontColor=#015C31;" value="③ 缩短码机制（Config 1 需要，全长译码器数学复用）" vertex="1">
+          <mxGeometry height="30" width="900" x="80" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="sc_full_label" parent="1" style="text;html=1;fillColor=none;strokeColor=none;align=left;fontSize=14;fontColor=#5C6670;fontStyle=1;" value="全长码 c_full (系统形式)" vertex="1">
+          <mxGeometry height="22" width="300" x="80" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="sc_parity" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DCF0E1;strokeColor=#015C31;strokeWidth=2;fontSize=14;fontStyle=1;" value="parity (n − k)" vertex="1">
+          <mxGeometry height="60" width="220" x="80" y="685" as="geometry" />
+        </mxCell>
+        <mxCell id="sc_zeros" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FBEEE6;strokeColor=#A23E0A;strokeWidth=2;fontSize=14;fontStyle=1;fontColor=#A23E0A;" value="0 0 0 … 0&#xa;s 个已知 0&#xa;（缩短位）" vertex="1">
+          <mxGeometry height="60" width="180" x="300" y="685" as="geometry" />
+        </mxCell>
+        <mxCell id="sc_msg" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EEF8F0;strokeColor=#009A44;strokeWidth=2;fontSize=14;fontStyle=1;" value="real message (k − s)" vertex="1">
+          <mxGeometry height="60" width="320" x="480" y="685" as="geometry" />
+        </mxCell>
+        <mxCell id="sc_arrow" edge="1" parent="1" style="endArrow=classic;html=1;strokeWidth=2.2;strokeColor=#A23E0A;endFill=1;endSize=6;fontSize=14;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="440" y="760" as="sourcePoint" />
+            <mxPoint x="440" y="800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sc_arrow_label" parent="1" style="text;html=1;fillColor=none;strokeColor=none;align=left;fontSize=14;fontColor=#A23E0A;fontStyle=1;" value="发送时丢弃 s 个已知 0（不上信道）" vertex="1">
+          <mxGeometry height="22" width="360" x="450" y="762" as="geometry" />
+        </mxCell>
+        <mxCell id="sc_sent_label" parent="1" style="text;html=1;fillColor=none;strokeColor=none;align=left;fontSize=14;fontColor=#5C6670;fontStyle=1;" value="发送码 (长度 n − s)" vertex="1">
+          <mxGeometry height="22" width="300" x="80" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="sc_parity2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DCF0E1;strokeColor=#015C31;strokeWidth=2;fontSize=14;fontStyle=1;" value="parity (n − k)" vertex="1">
+          <mxGeometry height="60" width="220" x="80" y="825" as="geometry" />
+        </mxCell>
+        <mxCell id="sc_msg2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EEF8F0;strokeColor=#009A44;strokeWidth=2;fontSize=14;fontStyle=1;" value="real message (k − s)" vertex="1">
+          <mxGeometry height="60" width="500" x="300" y="825" as="geometry" />
+        </mxCell>
+        <mxCell id="sc_params" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5FBF7;strokeColor=#14AE68;strokeWidth=1.75;fontSize=14;align=left;spacingLeft=12;spacingTop=8;arcSize=6;" value="RS  缩短参数（Config 1）&#xa;full n = 2^10 − 1 = 1023&#xa;缩短 s = 479&#xa;实际 n = 544, k = 514, t = 15&#xa;&#xa;BCH  缩短参数（Config 1）&#xa;full n_b = 2^8 − 1 = 255&#xa;缩短 s_b = 111&#xa;实际 n_b = 144, k_b = 136, t_b = 1&#xa;&#xa;缩短位是「无噪已知 0」&#xa;→ syndrome / 错误定位 / Forney 求值&#xa;   数学与全长完全一致" vertex="1">
+          <mxGeometry height="240" width="380" x="840" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="sc_rate" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFBEE;strokeColor=#C08A00;strokeWidth=1.75;fontSize=14;align=left;spacingLeft=12;spacingTop=8;arcSize=6;fontStyle=1;" value="级联码率 R = R_out × R_in&#xa;&#xa;Config 1：0.945 × 0.944 = 0.892&#xa;Config 2：0.937 × 0.937 = 0.833" vertex="1">
+          <mxGeometry height="140" width="280" x="1240" y="660" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

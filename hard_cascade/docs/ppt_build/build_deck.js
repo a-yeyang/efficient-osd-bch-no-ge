@@ -17,6 +17,7 @@ const path = require("path");
 
 const ROOT = "/Users/chenshiyang.10/workspace/llosd_reproduction";
 const RSFIG = path.join(ROOT, "rs_bch_cascade/figures");
+const RSFIG_MAT = path.join(ROOT, "rs_bch_cascade_matlab/figures");  // authoritative MATLAB figures
 const OUT = path.join(ROOT, "hard_cascade/docs/rs_bch_cascade_deck.pptx");
 
 // ---- palette (BIT official VI colors) ----
@@ -43,8 +44,8 @@ pres.author = "陈诗阳";
 pres.title = "RS+BCH 级联码低时延译码方案";
 
 const W = 13.333, H = 7.5, M = 0.6;
-const AR_BER = 1120 / 700;   // n255_scheme_a_ber
-const AR_KPI = 1680 / 630;   // n255_kpi_bars
+const AR_BER = 1188 / 782;   // matlab_n255_ber.png
+const AR_KPI = 1500 / 657;   // matlab_parallel_kpi.png
 
 // ---------------------------------------------------------------- helpers
 function title(s, txt, opts) {
@@ -324,28 +325,29 @@ function arrow(s, x1, y1, x2, y2, color, w) {
   s.addText("① 纠错性能：级联 vs 纯 RS（BER-SNR，n=255）", {
     x: M, y: 1.28, w: 6.2, h: 0.35, fontFace: FONT, fontSize: 13.5, bold: true,
     color: GREEN_DARK, align: "left", margin: 0 });
-  // BER 1120x700 → fit into 6.1 wide box
+  // BER 1188x782 → fit into 6.1 wide box
   const berW = 6.1, berH = berW / AR_BER;
-  s.addImage({ path: path.join(RSFIG, "n255_scheme_a_ber.png"), x: M, y: 1.7, w: berW, h: berH });
+  s.addImage({ path: path.join(RSFIG_MAT, "matlab_n255_ber.png"), x: M, y: 1.7, w: berW, h: berH });
 
-  // RIGHT: KPI latency bars (kept as image)
+  // RIGHT: P-lane parallel KPI figure (kept as image — authoritative MATLAB output)
   const rx = 7.0;
-  s.addText("② 延迟 KPI：对软/硬两种基线的延迟增幅", {
+  s.addText("② 延迟 KPI：P 路并行下的级联时延增幅（权威结论）", {
     x: rx, y: 1.28, w: W - rx - M, h: 0.35, fontFace: FONT, fontSize: 13.5, bold: true,
     color: GREEN_DARK, align: "left", margin: 0 });
   const kpiW = W - rx - M, kpiH = kpiW / AR_KPI;
-  s.addImage({ path: path.join(RSFIG, "n255_kpi_bars.png"), x: rx, y: 1.9, w: kpiW, h: kpiH });
+  s.addImage({ path: path.join(RSFIG_MAT, "matlab_parallel_kpi.png"), x: rx, y: 1.9, w: kpiW, h: kpiH });
 
   // analysis cards under the right figure
-  const ay = 1.9 + kpiH + 0.25;
-  card(s, rx, ay, W - rx - M, 1.5, GREEN_WASH, GREEN_75);
-  s.addText("延迟结论", { x: rx + 0.2, y: ay + 0.12, w: W - rx - M - 0.4, h: 0.34,
+  const ay = 1.9 + kpiH + 0.2;
+  card(s, rx, ay, W - rx - M, 1.62, GREEN_WASH, GREEN_75);
+  s.addText("延迟结论（权威口径）", { x: rx + 0.2, y: ay + 0.1, w: W - rx - M - 0.4, h: 0.32,
     fontFace: FONT, fontSize: 13, bold: true, color: GREEN_DARK, align: "left", margin: 0 });
   s.addText([
-    { text: "对软判基线 LCC-BR：低 SNR 延迟 −20%~−27%，KPI（≤+10%）达标；", options: { color: INK, breakLine: true } },
-    { text: "对硬判基线 BM：软判法必然更贵（+1156%~+1285%），需 Direct 硬判路线达标。", options: { color: BROWN } },
-  ], { x: rx + 0.2, y: ay + 0.5, w: W - rx - M - 0.4, h: 0.95, fontFace: FONT, fontSize: 12,
-       align: "left", margin: 0, valign: "top", lineSpacingMultiple: 1.15 });
+    { text: "串行 P=1：级联 LLOSD 比纯 RS 高 +18.7%(n=255)/+26.8%(n=127)，略超 10% 线；", options: { color: INK, breakLine: true } },
+    { text: "LLOSD 无主元、可并行(时延≈ops/P)：P=2→+9.4%、P=3→+8.9%，均达标；", options: { color: GREEN_DARK, breakLine: true } },
+    { text: "OSD 高斯消元串行、无法并行 —— 这正是 LLOSD 胜过 OSD 之处。", options: { color: BROWN } },
+  ], { x: rx + 0.2, y: ay + 0.46, w: W - rx - M - 0.4, h: 1.08, fontFace: FONT, fontSize: 11.5,
+       align: "left", margin: 0, valign: "top", lineSpacingMultiple: 1.12 });
 
   // BER analysis strip (bottom-left, under BER figure)
   const by = 1.7 + berH + 0.15;
@@ -358,7 +360,7 @@ function arrow(s, x1, y1, x2, y2, color, w) {
   ], { x: M + 0.2, y: by + 0.5, w: 5.7, h: 0.95, fontFace: FONT, fontSize: 12,
        align: "left", margin: 0, valign: "top", lineSpacingMultiple: 1.15 });
 
-  s.addNotes("结果与分析，两张真实仿真图。左：BER-SNR，级联 vs 纯RS。要诚实讲门限效应——低SNR段级联反而差(内码BCH误纠引额外错)，8dB以上反超，9.5dB级联BER到0而纯RS还有2e-4；BCH t=1几乎无增益，建议t≥2。右：延迟KPI柱状图。跟软判基线LCC-BR比延迟降20-27%达标；跟硬判基线BM比因为软判对硬判本就贵会+1156%~+1285%，这不是bug，要用Direct硬判路线满足硬判KPI。核心是：拿纠错增益换延迟，讲清跟谁比。");
+  s.addNotes("结果与分析，两张真实仿真图（均为 MATLAB 权威输出）。左：BER-SNR，级联 vs 纯RS(n=255)。要诚实讲门限效应——低SNR段级联反而差(内码BCH误纠引额外错)，8dB以上反超，9.5dB级联BER到0而纯RS还有2e-4；BCH t=1几乎无增益，建议t≥2。右：P路并行延迟KPI(权威结论)。串行P=1级联比纯RS高+18.7%(n=255)/+26.8%(n=127)，略超10%线；但LLOSD用Lagrange插值构造G_RS、无主元、天然可并行，时延≈ops/P，只需P=2(n=255)→+9.4%、P=3(n=127)→+8.9%就达标。关键点：OSD的高斯消元串行、无法这样并行——这正是LLOSD胜过OSD之处，也与论文自身'rows of G_RS generated in parallel'的时延度量口径一致。");
 })();
 
 // ============================================================ SLIDE 5 — 总结 & 下一步
@@ -379,7 +381,7 @@ function arrow(s, x1, y1, x2, y2, color, w) {
     ["抗突发交织", GREEN,
       "复现 APCC-2022 三步矩阵交织，w=1bit 把突发打散到多码字、每字≤1 错，零码率代价的抗突发增益。"],
     ["诚实结论", BROWN,
-      "开销约 12%（外码 RS × 内码 BCH 码率）；延迟对软判基线达标、对硬判基线偏贵；BER 低 SNR 有门限、高 SNR 反超；内码建议 t≥2。"],
+      "开销约 12%（外码 RS × 内码 BCH 码率）；延迟权威口径：串行 P=1 +18.7%(n=255)/+26.8%(n=127)，无主元可并行下 P=2/P=3 即降到 ≤10% KPI 达标；BER 低 SNR 有门限、高 SNR 反超；内码建议 t≥2。"],
   ];
   const y0 = 1.65, rh = 1.2;
   items.forEach((it, i) => {
@@ -396,11 +398,11 @@ function arrow(s, x1, y1, x2, y2, color, w) {
   card(s, M, 6.45, W - 2 * M, 0.72, GREEN_WASH, GREEN_75);
   s.addText([
     { text: "下一步：", options: { bold: true, color: GREEN_DARK } },
-    { text: "① 内码升到 BCH t≥2 提升级联增益；② P=64 并行 + Lagrange 共享压延迟；③ 补软判 Chase 交织增益。", options: { color: INK } },
+    { text: "① 内码升到 BCH t≥2 提升级联增益；② 用 P=2(n=255)/P=3(n=127) 的无主元并行 LLOSD 压延迟达标（更高 P 有更多余量）；③ 补软判 Chase 交织增益。", options: { color: INK } },
   ], { x: M + 0.25, y: 6.5, w: W - 2 * M - 0.5, h: 0.62, fontFace: FONT,
        fontSize: 12, align: "left", margin: 0, valign: "middle", lineSpacingMultiple: 1.05 });
 
-  s.addNotes("总结四点：做了什么(全链路级联码闭环)、核心创新(Lagrange替代高斯消元+共享)、抗突发交织(APCC2022三步交织)、诚实结论(开销约12%、延迟看基线、BER有门限、建议t≥2)。下一步：升内码t、并行压延迟、补软判交织。结束。");
+  s.addNotes("总结四点：做了什么(全链路级联码闭环)、核心创新(Lagrange替代高斯消元+共享)、抗突发交织(APCC2022三步交织)、诚实结论(开销约12%、延迟权威口径串行+18.7/+26.8%、无主元并行P=2/P=3即达标、BER有门限、建议t≥2)。下一步：升内码t、用无主元并行LLOSD压延迟、补软判交织。结束。");
 })();
 
 pres.writeFile({ fileName: OUT }).then((f) => {
